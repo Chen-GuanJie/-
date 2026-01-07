@@ -132,9 +132,9 @@ $ <eq:screen-similarity>
 
 === 不一致性报告生成 <app:process-inconsistency-report>
 
-系统基于形式化定义对流程一致性进行自动化判定与报告生成。记设计稿中的期望流程为 $bf(process)^{t a r} = (bf(screenset)^{t a r}, bf(actionchainset)^{t a r})$，而在实现端实际执行得到的流程为 $bf(process) = (bf(screenset), bf(actionchainset)^{t a r}_{c o m p l e t e}})$。流程不一致的判定准则是：存在某一时间步 $t$，使得执行界面 $bf(screen)_t$ 与原型对应界面 $bf(screen)^{t a r}_t$ 的相似度低于阈值 $epsilon_"screen"$，即满足：
+系统基于形式化定义对流程一致性进行自动化判定与报告生成。记设计稿中的期望流程为 $bf(process)^tar = (bf(screenset)^tar, bf(actionchainset)^tar)$，而在实现端实际执行得到的流程为 $bf(process) = (bf(screenset), bf(actionchainset)^tar_(c o m p l e t e))$。流程不一致的判定准则是：存在某一时间步 $t$，使得执行界面 $bf(screen)_t$ 与原型对应界面 $bf(screen)^tar_t$ 的相似度低于阈值 $epsilon_(s c r e e n)$，即满足：
 
-$exists screen_t in screenset; screen^tar_t in screenset^tar;s i m(bf(screen)_t, bf(screen)^{t a r}_t) < epsilon_"screen"$
+$exists screen_t in screenset; screen^tar_t in screenset^tar; s i m(bf(screen)_t, bf(screen)^tar_t) < epsilon_(s c r e e n)$
 
 针对上述判定出的流程差异以及 @sec:ps 中定义的其他细粒度不一致性，系统将自动生成一份包含完整证据链的结构化审计报告。报告以条目化形式详述每一项违规，涵盖唯一标识符（ID）、时间戳、违规类型、多媒体证据（如对比截图与差异标注）、执行轨迹（动作序列与 UI 树）、相似度评分及根因分析建议。具体的报告内容包括：
 

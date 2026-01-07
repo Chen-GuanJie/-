@@ -10,5 +10,5 @@
 #let actionchain = bf("ac") // 对应 \mathbf{ac}
 #let actionchainset = math.cal("AC") // 对应 \mathcal{AC}
 #let process = bf("p") // 对应 \mathbf{p}
-#let src = "src" 
-#let tar = "tar"
+#let src = $s r c$
+#let tar = $t a r$

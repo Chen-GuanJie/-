@@ -50,23 +50,23 @@ $
 
 具体的分项指标如下：
 （i）位置相似度：基于组件边界框的中心位置及尺寸计算。既可采用坐标差的 L1 范数距离，也可并行计算边界框的交并比（IoU）作为位置重叠度的补充指标。为消除尺度依赖，位置得分被归一化至 $[0,1]$ 区间，其形式通常为：
-$s i m_("pos") = min(1 / (alpha(|x_i-x_j|+|y_i-y_j|) + |w_i-w_j| + |h_i-h_j|)), 1)$
-或者使用 $s i m_("pos")^("IoU") = "IoU"(b_i, b_j)$。在实践中，结合两者能显著提高对位置偏移与重叠变化的鲁棒性。
+$s i m_(p o s) = min(1 / (alpha(|x_i-x_j|+|y_i-y_j|) + |w_i-w_j| + |h_i-h_j|)), 1)$
+或者使用 $s i m_(p o s)^(I o U) = "IoU"(b_i, b_j)$。在实践中，结合两者能显著提高对位置偏移与重叠变化的鲁棒性。
 
 （ii）面积相似度：衡量两个组件在像素面积上的相对差异，定义为
-$ s i m_("area") = min(w_i h_i, w_j h_j) / max(w_i h_i, w_j h_j) $
+$ s i m_(a r e a) = min(w_i h_i, w_j h_j) / max(w_i h_i, w_j h_j) $
 其值域为 $(0,1]$，越接近 1 表明两者面积越吻合。
 
 （iii）形状相似度：评估组件宽高比的一致性，用于区分长条形控件与方形控件，计算公式为：
-$ s i m_("shape") = min(w_i/h_i, w_j/h_j) / max(w_i/h_i, w_j/h_j) $
+$ s i m_(s h a p e) = min(w_i/h_i, w_j/h_j) / max(w_i/h_i, w_j/h_j) $
 
-（iv）类型/语义相似度：基于检测到的控件类别标签赋值。若类别相同则 $s i m_("type")=1$；若类别不同则赋予衰减因子 $delta in (0,1)$。
+（iv）类型/语义相似度：基于检测到的控件类别标签赋值。若类别相同则 $s i m_(t y p e)=1$；若类别不同则赋予衰减因子 $delta in (0,1)$。
 
-对于包含文本的控件（如 TextView、TextButton、CombinedButton、InputBox），我们会利用 OCR 预先提取文本内容，并计算归一化的编辑距离或基于语义嵌入的余弦相似度，得到 $s i m_("text") in [0,1]$。该项可与类型相似度结合，进一步增强语义判定的准确性。对于图标或图像类控件（如 IconButton、ImageView），则可引入颜色直方图、局部特征描述符或轻量级图像嵌入来计算视觉相似度 $s i m_("visual")$，以弥补纯几个度量的不足。
+对于包含文本的控件（如 TextView、TextButton、CombinedButton、InputBox），我们会利用 OCR 预先提取文本内容，并计算归一化的编辑距离或基于语义嵌入的余弦相似度，得到 $s i m_(t e x t) in [0,1]$。该项可与类型相似度结合，进一步增强语义判定的准确性。对于图标或图像类控件（如 IconButton、ImageView），则可引入颜色直方图、局部特征描述符或轻量级图像嵌入来计算视觉相似度 $s i m_(v i s u a l)$，以弥补纯几个度量的不足。
 
 最终的相似度矩阵元素 $A_(i,j)$ 通常由各分项指标的加权几何平均得出：
 $
-  A_(i,j) = s i m_("pos")^(w_p) dot s i m_("area")^(w_a) dot s i m_("shape")^(w_s) dot s i m_("type")^(w_t) dot s i m_("text")^(w_("txt")) dot s i m_("visual")^(w_("vis"))
+  A_(i,j) = s i m_(p o s)^(w_p) dot s i m_(a r e a)^(w_a) dot s i m_(s h a p e)^(w_s) dot s i m_(t y p e)^(w_t) dot s i m_(t e x t)^(w_(t x t)) dot s i m_(v i s u a l)^(w_(v i s))
 $
 其中权重 $w_k$ 可通过交叉验证或在小规模标注数据集上进行调优。计算完成后，会对 $A_(i,j)$ 执行阈值过滤（即若 $A_(i,j) < tau$ 则视为无效匹配），以降低错误匹配的概率。同时，对于面积过小的噪声框或非可视节点，应在预处理阶段予以剔除。
 
@@ -100,11 +100,11 @@ $ M_(i,j) = max(M_(i-1,j)-g, M_(i,j-1)-g, M_(i-1,j-1) + A_(i,j)) $
     + /* 步骤 2: 计算相似度矩阵 */
     + 初始化相似度矩阵 $A <- bf(0)_(|bf(W)_1| times |bf(W)_2|)$
     + *for* $bf(w)_i in bf(W)_1, bf(w)_j in bf(W)_2$ *do*
-      + $s i m_("pos") = min(1 / (alpha(|x_i - x_j| + |y_i - y_j|) + |w_i - w_j| + |h_i - h_j|), 1)$
-      + $s i m_("area") = min(w_i h_i, w_j h_j) / max(w_i h_i, w_j h_j)$
-      + $s i m_("shape") = min(w_i \/ h_i, w_j \/ h_j) / max(w_i \/ h_i, w_j \/ h_j)$
-      + $s i m_("type") = bf(1)(t_i = t_j) + delta bf(1)(t_i != t_j)$
-      + $A_(i,j) <- s i m_("pos") dot s i m_("area") dot s i m_("shape") dot s i m_("type")$
+      + $s i m_(p o s) = min(1 / (alpha(|x_i - x_j| + |y_i - y_j|) + |w_i - w_j| + |h_i - h_j|), 1)$
+      + $s i m_(a r e a) = min(w_i h_i, w_j h_j) / max(w_i h_i, w_j h_j)$
+      + $s i m_(s h a p e) = min(w_i \/ h_i, w_j \/ h_j) / max(w_i \/ h_i, w_j \/ h_j)$
+      + $s i m_(t y p e) = bf(1)(t_i = t_j) + delta bf(1)(t_i != t_j)$
+      + $A_(i,j) <- s i m_(p o s) dot s i m_(a r e a) dot s i m_(s h a p e) dot s i m_(t y p e)$
     + *end*
     + /* 步骤 3: 基于 LCS 的匹配 */
     + 初始化匹配矩阵 $M <- bf(0)_(|bf(W)_1|+1 times |bf(W)_2|+1)$
@@ -148,9 +148,9 @@ $ M_(i,j) = max(M_(i-1,j)-g, M_(i,j-1)-g, M_(i-1,j-1) + A_(i,j)) $
 
 *内容级不一致：* 对于类别相同的匹配对，需根据组件的具体类型进一步检验其内容与视觉表现。本工作参考了 GVT @moran2018automated 方法的做法，对不同类型的组件采用分化的判断策略：
 
-+ 基于文本的组件（TextButton、TextView、InputBox、CombinedButton 等）：需对两个版本中的文本内容进行相似度计算。具体方法为：首先通过 OCR 或从 UI 树中提取文本信息，然后计算基于编辑距离（如莱文斯坦距离）或字符级序列相似度的得分，记为 $s i m_("text")$。若 $s i m_("text")$ 超过预设阈值 $epsilon_("ed")$，则认为文本内容基本保持一致；否则视为发生了内容变化。
++ 基于文本的组件（TextButton、TextView、InputBox、CombinedButton 等）：需对两个版本中的文本内容进行相似度计算。具体方法为：首先通过 OCR 或从 UI 树中提取文本信息，然后计算基于编辑距离（如莱文斯坦距离）或字符级序列相似度的得分，记为 $s i m_(t e x t)$。若 $s i m_(t e x t)$ 超过预设阈值 $epsilon_(e d)$，则认为文本内容基本保持一致；否则视为发生了内容变化。
 
-+ 基于图标或图像的组件（IconButton、ImageView、InputBox、CombinedButton 等）：需对两个版本的视觉内容进行颜色与特征匹配。判断流程包括：（i）提取主色调，计算二值（黑白）颜色空间上的差异，需满足 $"diff"_("binary") < epsilon_("binary")$；（ii）提取出现频率最高的前 $k$ 种主要颜色，计算其 RGB 向量间的欧氏距离或余弦距离，需满足 $"diff"_("color") < epsilon_("color")$。两个条件均满足才认为图标保持视觉一致。
++ 基于图标或图像的组件（IconButton、ImageView、InputBox、CombinedButton 等）：需对两个版本的视觉内容进行颜色与特征匹配。判断流程包括：（i）提取主色调，计算二值（黑白）颜色空间上的差异，需满足 $d i f f_(b i n a r y) < epsilon_(b i n a r y)$；（ii）提取出现频率最高的前 $k$ 种主要颜色，计算其 RGB 向量间的欧氏距离或余弦距离，需满足 $d i f f_(c o l o r) < epsilon_(c o l o r)$。两个条件均满足才认为图标保持视觉一致。
 
 *特殊情形：图表组件（Chart）。* 对于图表类组件，鉴于其内容往往具有高度的动态性与数据驱动特性，设计稿中的图表通常仅作为布局占位符或样式参考，而非精确的数据表示。因此，对图表组件采用更为宽松的比较策略：只要设计稿和实现版本中的图表组件能够成功对齐（即在位置与尺寸上满足相似度阈值），便认为其在设计规范上保持一致，不对数据内容或具体数值进行逐一比对。
 

@@ -111,7 +111,7 @@
 // 正文内容
 #include "chapters/intro.typ"
 #include "chapters/background.typ"
-#include "chapters/problem_statement.typ"
+
 #include "chapters/approach/main.typ"
 #include "chapters/experiment/main.typ"
 #include "chapters/case_study.typ"
