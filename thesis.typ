@@ -55,8 +55,8 @@
   confidentialty-level: "internal", // 保密级别: "public" | "internal" | "secret" | "confidential"
   confidentialty-year: 2, // 保密年份数，请根据保密级别的要求填写
   date: datetime.today(),
-  original-statement-sign: place(dx: 13cm, dy: -1.3cm, image("figures/student-sign.png", height: 2em)), // 请根据签名图片的大小，自行调整图片的高度和位置
-  authorization-author-sign: place(dx: 5cm, dy: -1.3cm, image("figures/student-sign.png", height: 2em)),
+  original-statement-sign: place(dx: 13cm, dy: -1.3cm, image("figures/student-sign2.jpg", height: 2em)), // 请根据签名图片的大小，自行调整图片的高度和位置
+  authorization-author-sign: place(dx: 5cm, dy: -1.3cm, image("figures/student-sign2.jpg", height: 2em)),
   supervisor-sign: place(dx: 4cm, dy: -1.2cm, image("figures/supervisor-sign.png", height: 2em)),
 ) // 不需要显示日期和签名，可直接注释
 
@@ -117,7 +117,7 @@
 #include "chapters/experiment/main.typ"
 #include "chapters/case_study.typ"
 
-
+#include "chapters/conclusion/main.typ"
 
 // 请根据文档类型，自行选择 if-else 中的内容
 // 参考文献
@@ -226,35 +226,13 @@
   label-name: "lilaq-scatter-example",
 )
 
-
-#if doctype == "bachelor" [
-  #achievement(
-    papers: (
-      "Chen H, Chan C T. Acoustic cloaking in three dimensions using acoustic metamaterials[J]. Applied Physics Letters, 2007, 91:183518.",
-      "Chen H, Wu B I, Zhang B, et al. Electromagnetic Wave Interactions with a Metamaterial Cloak[J]. Physical Review Letters, 2007, 99(6):63903.",
-    ),
-    patents: ("第一发明人, 永动机[P], 专利申请号202510149890.0.",),
-  )
-
-  #acknowledgement[
-    致谢主要感谢导师和对论文工作有直接贡献和帮助的人士和单位。致谢言语应谦虚诚恳，实事求是。
-  ]
-
-  #summary-en[
-    HCCI (Homogenous Charge Compression Ignition)combustion has advantages in terms of efficiency and reduced emission. HCCI combustion can not only ensure both the high economic and dynamic quality of the engine, but also efficiently reduce the NOx and smoke emission. Moreover, one of the remarkable characteristics of HCCI combustion is that the ignition and combustion process are controlled by the chemical kinetics, so the HCCI ignition time can vary significantly with the changes of engine configuration parameters and operating conditions......
-  ]
-] else [
-  #acknowledgement[
-    致谢主要感谢导师和对论文工作有直接贡献和帮助的人士和单位。致谢言语应谦虚诚恳，实事求是。
-  ]
-
-  #achievement(
-    papers: (
-      "Chen H, Chan C T. Acoustic cloaking in three dimensions using acoustic metamaterials[J]. Applied Physics Letters, 2007, 91:183518.",
-      "Chen H, Wu B I, Zhang B, et al. Electromagnetic Wave Interactions with a Metamaterial Cloak[J]. Physical Review Letters, 2007, 99(6):63903.",
-    ),
-    patents: ("第一发明人, 永动机[P], 专利申请号202510149890.0.",),
-  )
+#acknowledgement[
+  致谢主要感谢导师和对论文工作有直接贡献和帮助的人士和单位。致谢言语应谦虚诚恳，实事求是。
 ]
+
+#achievement(
+  patents: ("第一发明人, 面向需求设计稿的GUI软件测试系统及方法[P], 专利申请号CN202510267792.7",),
+)
+
 
 
