@@ -1,0 +1,13 @@
+#let tool = "GUIPilot"
+#let mockupnum = "2000"
+#let apps = 100
+#let bf(x) = math.bold(math.upright(x)) // 等价于 LaTeX 中的 \mathbf+\mathrm 风格
+#let screen = bf("s") // 对应 \mathbf{s}
+#let screenset = math.cal("S") // 对应 \mathcal{S}
+#let widget = bf("w") // 对应 \mathbf{w}
+#let widgetset = math.cal("W") // 对应 \mathcal{W}
+#let action = bf("a") // 对应 \mathbf{a}
+#let actionchain = bf("ac") // 对应 \mathbf{ac}
+#let actionchainset = math.cal("AC") // 对应 \mathcal{AC}
+#let process = bf("p") // 对应 \mathbf{p}
+#let bf(x) = math.bold(math.upright(x))
