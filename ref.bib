@@ -1,0 +1,847 @@
+@INPROCEEDINGS {7515457,
+author = { Moran, Kevin and Linares-Vasquez, Mario and Bernal-Cardenas, Carlos and Vendome, Christopher and Poshyvanyk, Denys },
+booktitle = { 2016 IEEE International Conference on Software Testing, Verification and Validation (ICST) },
+title = {{ Automatically Discovering, Reporting and Reproducing Android Application Crashes }},
+year = {2016},
+volume = {},
+ISSN = {},
+pages = {33-44},
+abstract = { Mobile developers face unique challenges when detecting and reporting crashes in apps due to their prevailing GUI event-driven nature and additional sources of inputs (e.g., sensor readings). To support developers in these tasks, we introduce a novel, automated approach called CRASHSCOPE. This tool explores a given Android app using systematic input generation, according to several strategies informed by static and dynamic analyses, with the intrinsic goal of triggering crashes. When a crash is detected, CRASHSCOPE generates an augmented crash report containing screenshots, detailed crash reproduction steps, the captured exception stack trace, and a fully replayable script that automatically reproduces the crash on a target device(s). We evaluated CRASHSCOPE's effectiveness in discovering crashes as compared to five state-of-the-art Android input generation tools on 61 applications. The results demonstrate that CRASHSCOPE performs about as well as current tools for detecting crashes and provides more detailed fault information. Additionally, in a study analyzing eight real-world Android app crashes, we found that CRASHSCOPE's reports are easily readable and allow for reliable reproduction of crashes by presenting more explicit information than human written reports. },
+keywords = {Computer crashes;Graphical user interfaces;Androids;Humanoid robots;Testing;Mobile communication;Systematics},
+doi = {10.1109/ICST.2016.34},
+url = {https://doi.ieeecomputersociety.org/10.1109/ICST.2016.34},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month =apr}
+
+
+@online{mobile-app-market,
+    author = {Grand View Research},
+    title = {Mobile Application Market Size \& Trends},
+    howpublished = {\url{https://www.grandviewresearch.com/industry-analysis/mobile-application-market}} 
+}
+
+@online{ux-design,
+    author = {Codehouse},
+    title = {6 factors that influence the UX and UI of a digital product},
+    howpublished = {\url{https://www.codehousegroup.com/au/insights/6-factors-that-influence-the-ux-and-ui-of-a-digital-product}} 
+}
+
+@online{sketch-app,
+    title = {Sketch},
+    howpublished = {\url{https://www.sketch.com/}}
+}
+
+@online{axure-app,
+    title = {Axure},
+    howpublished = {\url{https://www.axure.com/}}
+}
+
+@online{balsamiq-app,
+    title = {Balsamiq},
+    howpublished = {\url{https://balsamiq.com/}}
+}
+
+@online{gtjai,
+    title = {Guotai Junan International},
+    howpublished = {\url{https://www.gtjai.com/en}}
+}
+
+@online{junhong,
+    title = {Guotai Junan JunHong App},
+    howpublished = {\url{https://play.google.com/store/apps/details?id=com.guotai.dazhihui}}
+}
+
+@online{marketch,
+    title = {Marketch},
+    howpublished = {\url{https://www.getmarketch.com/}} 
+}
+
+@online{uiautomator2,
+    title = {Android UiAutomator2},
+    howpublished = {\url{https://github.com/appium/appium-uiautomator2-driver}} 
+}
+
+@online{map,
+    title = {mAP (mean Average Precision) for Object Detection},
+    howpublished = {\url{https://jonathan-hui.medium.com/map-mean-average-precision-for-object-detection-45c121a31173}}
+}
+
+@online{waydroid,
+title = {Waydroid},
+howpublished = {\url{https://github.com/waydroid/waydroid}}
+}
+
+@online{gpt4o,
+    title = {GPT-4o},
+    howpublished = {\url{https://openai.com/index/hello-gpt-4o/}}
+}
+
+@inproceedings{moran2018automated,
+  title={Automated reporting of GUI design violations for mobile apps},
+  author={Moran, Kevin and Li, Boyang and Bernal-C{\'a}rdenas, Carlos and Jelf, Dan and Poshyvanyk, Denys},
+  booktitle={Proceedings of the 40th International Conference on Software Engineering},
+  pages={165--175},
+  year={2018}
+}
+
+@article{pan2020gui,
+  title={Gui-guided test script repair for mobile apps},
+  author={Pan, Minxue and Xu, Tongtong and Pei, Yu and Li, Zhong and Zhang, Tian and Li, Xuandong},
+  journal={IEEE Transactions on Software Engineering},
+  volume={48},
+  number={3},
+  pages={910--929},
+  year={2020},
+  publisher={IEEE}
+}
+
+@inproceedings{yu2021layout,
+  title={Layout and image recognition driving cross-platform automated mobile testing},
+  author={Yu, Shengcheng and Fang, Chunrong and Yun, Yexiao and Feng, Yang},
+  booktitle={2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE)},
+  pages={1561--1571},
+  year={2021},
+  organization={IEEE}
+}
+
+@article{ardito2021feature,
+  title={Feature matching-based approaches to improve the robustness of Android visual GUI testing},
+  author={Ardito, Luca and Bottino, Andrea and Coppola, Riccardo and Lamberti, Fabrizio and Manigrasso, Francesco and Morra, Lia and Torchiano, Marco},
+  journal={ACM Transactions on Software Engineering and Methodology (TOSEM)},
+  volume={31},
+  number={2},
+  pages={1--32},
+  year={2021},
+  publisher={ACM New York, NY}
+}
+
+@inproceedings{chen2020object,
+  title={Object detection for graphical user interface: Old fashioned or deep learning or a combination?},
+  author={Chen, Jieshan and Xie, Mulong and Xing, Zhenchang and Chen, Chunyang and Xu, Xiwei and Zhu, Liming and Li, Guoqiang},
+  booktitle={proceedings of the 28th ACM joint meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  pages={1202--1214},
+  year={2020}
+}
+
+@inproceedings{xie2020uied,
+  title={UIED: a hybrid tool for GUI element detection},
+  author={Xie, Mulong and Feng, Sidong and Xing, Zhenchang and Chen, Jieshan and Chen, Chunyang},
+  booktitle={Proceedings of the 28th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  pages={1655--1659},
+  year={2020}
+}
+
+
+
+@article{yolov8,
+  title={Real-time flying object detection with YOLOv8},
+  author={Reis, Dillon and Kupec, Jordan and Hong, Jacqueline and Daoudi, Ahmad},
+  journal={arXiv preprint arXiv:2305.09972},
+  year={2023}
+}
+
+@article{lcs,
+  title={A linear space algorithm for computing maximal common subsequences},
+  author={Hirschberg, Daniel S},
+  journal={Communications of the ACM},
+  volume={18},
+  number={6},
+  pages={341--343},
+  year={1975},
+  publisher={ACM}
+}
+
+
+@article{dp,
+  title={The string-to-string correction problem},
+  author={Wagner, Robert A. and Fischer, Michael J.},
+  journal={Journal of the ACM (JACM)},
+  volume={21},
+  number={1},
+  pages={168--173},
+  year={1974},
+  publisher={ACM}
+}
+
+@inproceedings{zhao2020seenomaly,
+  title={Seenomaly: Vision-based linting of gui animation effects against design-don't guidelines},
+  author={Zhao, Dehai and Xing, Zhenchang and Chen, Chunyang and Xu, Xiwei and Zhu, Liming and Li, Guoqiang and Wang, Jinshui},
+  booktitle={Proceedings of the ACM/IEEE 42nd international conference on software engineering},
+  pages={1286--1297},
+  year={2020}
+}
+
+@inproceedings{yang2021don,
+  title={Don’t do that! hunting down visual design smells in complex uis against design guidelines},
+  author={Yang, Bo and Xing, Zhenchang and Xia, Xin and Chen, Chunyang and Ye, Deheng and Li, Shanping},
+  booktitle={2021 IEEE/ACM 43rd international conference on software engineering (ICSE)},
+  pages={761--772},
+  year={2021},
+  organization={IEEE}
+}
+
+@article{liu2022nighthawk,
+  title={Nighthawk: Fully automated localizing ui display issues via visual understanding},
+  author={Liu, Zhe and Chen, Chunyang and Wang, Junjie and Huang, Yuekai and Hu, Jun and Wang, Qing},
+  journal={IEEE Transactions on Software Engineering},
+  volume={49},
+  number={1},
+  pages={403--418},
+  year={2022},
+  publisher={IEEE}
+}
+
+@inproceedings{liu2023fill,
+  title={Fill in the blank: Context-aware automated text input generation for mobile gui testing},
+  author={Liu, Zhe and Chen, Chunyang and Wang, Junjie and Che, Xing and Huang, Yuekai and Hu, Jun and Wang, Qing},
+  booktitle={2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)},
+  pages={1355--1367},
+  year={2023},
+  organization={IEEE}
+}
+
+@inproceedings{liu2024unblind,
+  title={Unblind Text Inputs: Predicting Hint-text of Text Input in Mobile Apps via LLM},
+  author={Liu, Zhe and Chen, Chunyang and Wang, Junjie and Chen, Mengzhuo and Wu, Boyu and Huang, Yuekai and Hu, Jun and Wang, Qing},
+  booktitle={Proceedings of the CHI Conference on Human Factors in Computing Systems},
+  pages={1--20},
+  year={2024}
+}
+
+@inproceedings{liu2024testing,
+  title={Testing the limits: Unusual text inputs generation for mobile app crash detection with large language model},
+  author={Liu, Zhe and Chen, Chunyang and Wang, Junjie and Chen, Mengzhuo and Wu, Boyu and Tian, Zhilin and Huang, Yuekai and Hu, Jun and Wang, Qing},
+  booktitle={Proceedings of the IEEE/ACM 46th International Conference on Software Engineering},
+  pages={1--12},
+  year={2024}
+}
+
+@inproceedings{liu2024make,
+  title={Make llm a testing expert: Bringing human-like interaction to mobile gui testing via functionality-aware decisions},
+  author={Liu, Zhe and Chen, Chunyang and Wang, Junjie and Chen, Mengzhuo and Wu, Boyu and Che, Xing and Wang, Dandan and Wang, Qing},
+  booktitle={Proceedings of the IEEE/ACM 46th International Conference on Software Engineering},
+  pages={1--13},
+  year={2024}
+}
+
+@inproceedings{wen2024autodroid,
+  title={Autodroid: Llm-powered task automation in android},
+  author={Wen, Hao and Li, Yuanchun and Liu, Guohong and Zhao, Shanhui and Yu, Tao and Li, Toby Jia-Jun and Jiang, Shiqi and Liu, Yunhao and Zhang, Yaqin and Liu, Yunxin},
+  booktitle={Proceedings of the 30th Annual International Conference on Mobile Computing and Networking},
+  pages={543--557},
+  year={2024}
+}
+
+@article{deng2024mind2web,
+  title={Mind2web: Towards a generalist agent for the web},
+  author={Deng, Xiang and Gu, Yu and Zheng, Boyuan and Chen, Shijie and Stevens, Sam and Wang, Boshi and Sun, Huan and Su, Yu},
+  journal={Advances in Neural Information Processing Systems},
+  volume={36},
+  year={2024}
+}
+
+@article{furuta2023multimodal,
+  title={Multimodal web navigation with instruction-finetuned foundation models},
+  author={Furuta, Hiroki and Lee, Kuang-Huei and Nachum, Ofir and Matsuo, Yutaka and Faust, Aleksandra and Gu, Shixiang Shane and Gur, Izzeddin},
+  journal={arXiv preprint arXiv:2305.11854},
+  year={2023}
+}
+
+@article{gur2023real,
+  title={A real-world webagent with planning, long context understanding, and program synthesis},
+  author={Gur, Izzeddin and Furuta, Hiroki and Huang, Austin and Safdari, Mustafa and Matsuo, Yutaka and Eck, Douglas and Faust, Aleksandra},
+  journal={arXiv preprint arXiv:2307.12856},
+  year={2023}
+}
+
+@inproceedings{lan2024deeply,
+  title={Deeply Reinforcing Android GUI Testing with Deep Reinforcement Learning},
+  author={Lan, Yuanhong and Lu, Yifei and Li, Zhong and Pan, Minxue and Yang, Wenhua and Zhang, Tian and Li, Xuandong},
+  booktitle={Proceedings of the 46th IEEE/ACM International Conference on Software Engineering},
+  pages={1--13},
+  year={2024}
+}
+
+@inproceedings{yu2024practical,
+  title={Practical Non-Intrusive GUI Exploration Testing with Visual-based Robotic Arms},
+  author={Yu, Shengcheng and Fang, Chunrong and Du, Mingzhe and Ling, Yuchen and Chen, Zhenyu and Su, Zhendong},
+  booktitle={Proceedings of the IEEE/ACM 46th International Conference on Software Engineering},
+  pages={1--13},
+  year={2024}
+}
+
+@inproceedings{mahmud2024using,
+  title={On Using GUI Interaction Data to Improve Text Retrieval-based Bug Localization},
+  author={Mahmud, Junayed and De Silva, Nadeeshan and Khan, Safwat Ali and Mostafavi, Seyed Hooman and Mansur, SM Hasan and Chaparro, Oscar and Marcus, Andrian and Moran, Kevin},
+  booktitle={Proceedings of the 46th IEEE/ACM International Conference on Software Engineering},
+  pages={1--13},
+  year={2024}
+}
+
+@inproceedings{krishna2024motorease,
+  title={MotorEase: Automated detection of motor impairment accessibility issues in mobile app UIs},
+  author={Krishna Vajjala, Arun and Mansur, SM Hasan and Jose, Justin and Moran, Kevin},
+  booktitle={Proceedings of the IEEE/ACM 46th International Conference on Software Engineering},
+  pages={1--13},
+  year={2024}
+}
+
+@inproceedings{bose2023columbus,
+  title={Columbus: Android app testing through systematic callback exploration},
+  author={Bose, Priyanka and Das, Dipanjan and Vasan, Saastha and Mariani, Sebastiano and Grishchenko, Ilya and Continella, Andrea and Bianchi, Antonio and Kruegel, Christopher and Vigna, Giovanni},
+  booktitle={2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)},
+  pages={1381--1392},
+  year={2023},
+  organization={IEEE}
+}
+
+@inproceedings{ran2023badge,
+  title={Badge: prioritizing UI events with hierarchical multi-armed bandits for automated UI testing},
+  author={Ran, Dezhi and Wang, Hao and Wang, Wenyu and Xie, Tao},
+  booktitle={2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)},
+  pages={894--905},
+  year={2023},
+  organization={IEEE}
+}
+
+@inproceedings{feng2023efficiency,
+  title={Efficiency matters: Speeding up automated testing with gui rendering inference},
+  author={Feng, Sidong and Xie, Mulong and Chen, Chunyang},
+  booktitle={2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)},
+  pages={906--918},
+  year={2023},
+  organization={IEEE}
+}
+
+@inproceedings{ma2023automata,
+  title={Automata-Based Trace Analysis for Aiding Diagnosing GUI Testing Tools for Android},
+  author={Ma, Enze and Huang, Shan and He, Weigang and Su, Ting and Wang, Jue and Liu, Huiyu and Pu, Geguang and Su, Zhendong},
+  booktitle={Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  pages={592--604},
+  year={2023}
+}
+
+@inproceedings{sun2023property,
+  title={Property-Based Fuzzing for Finding Data Manipulation Errors in Android Apps},
+  author={Sun, Jingling and Su, Ting and Jiang, Jiayi and Wang, Jue and Pu, Geguang and Su, Zhendong},
+  booktitle={Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  pages={1088--1100},
+  year={2023}
+}
+
+@inproceedings{ahmed2023vialin,
+  title={ViaLin: Path-Aware Dynamic Taint Analysis for Android},
+  author={Ahmed, Khaled and Wang, Yingying and Lis, Mieszko and Rubin, Julia},
+  booktitle={Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  pages={1598--1610},
+  year={2023}
+}
+
+@inproceedings{qian2022accelerating,
+  title={Accelerating OCR-based widget localization for test automation of GUI applications},
+  author={Qian, Ju and Ma, Yingwei and Lin, Chenghao and Chen, Lin},
+  booktitle={Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering},
+  pages={1--13},
+  year={2022}
+}
+
+@inproceedings{su2022metamorphosis,
+  title={The metamorphosis: Automatic detection of scaling issues for mobile apps},
+  author={Su, Yuhui and Chen, Chunyang and Wang, Junjie and Liu, Zhe and Wang, Dandan and Li, Shoubin and Wang, Qing},
+  booktitle={Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering},
+  pages={1--12},
+  year={2022}
+}
+
+@inproceedings{alshayban2022accessitext,
+  title={AccessiText: automated detection of text accessibility issues in Android apps},
+  author={Alshayban, Abdulaziz and Malek, Sam},
+  booktitle={Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  pages={984--995},
+  year={2022}
+}
+
+@inproceedings{wang2022detecting,
+  title={Detecting non-crashing functional bugs in Android apps via deep-state differential analysis},
+  author={Wang, Jue and Jiang, Yanyan and Su, Ting and Li, Shaohua and Xu, Chang and Lu, Jian and Su, Zhendong},
+  booktitle={Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  pages={434--446},
+  year={2022}
+}
+
+@inproceedings{huang2021characterizing,
+  title={Characterizing and detecting configuration compatibility issues in android apps},
+  author={Huang, Huaxun and Wen, Ming and Wei, Lili and Liu, Yepang and Cheung, Shing-Chi},
+  booktitle={2021 36th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  pages={517--528},
+  year={2021},
+  organization={IEEE}
+}
+
+@inproceedings{zhang2024learning,
+  title={Learning-based Widget Matching for Migrating GUI Test Cases},
+  author={Zhang, Yakun and Zhang, Wenjie and Ran, Dezhi and Zhu, Qihao and Dou, Chengfeng and Hao, Dan and Xie, Tao and Zhang, Lu},
+  booktitle={Proceedings of the 46th IEEE/ACM International Conference on Software Engineering},
+  pages={1--13},
+  year={2024}
+}
+
+@inproceedings{talebipour2021ui,
+  title={Ui test migration across mobile platforms},
+  author={Talebipour, Saghar and Zhao, Yixue and Dojcilovi{\'c}, Luka and Li, Chenggang and Medvidovi{\'c}, Nenad},
+  booktitle={2021 36th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  pages={756--767},
+  year={2021},
+  organization={IEEE}
+}
+
+@inproceedings{mariani2021semantic,
+  title={Semantic matching of gui events for test reuse: are we there yet?},
+  author={Mariani, Leonardo and Mohebbi, Ali and Pezz{\`e}, Mauro and Terragni, Valerio},
+  booktitle={Proceedings of the 30th ACM SIGSOFT International Symposium on Software Testing and Analysis},
+  pages={177--190},
+  year={2021}
+}
+
+@inproceedings{hu2023omegatest,
+  title={$\omega$Test: WebView-Oriented Testing for Android Applications},
+  author={Hu, Jiajun and Wei, Lili and Liu, Yepang and Cheung, Shing-Chi},
+  booktitle={Proceedings of the 32nd ACM SIGSOFT International Symposium on Software Testing and Analysis},
+  pages={992--1004},
+  year={2023}
+}
+
+@inproceedings{zhao2022avgust,
+  title={Avgust: automating usage-based test generation from videos of app executions},
+  author={Zhao, Yixue and Talebipour, Saghar and Baral, Kesina and Park, Hyojae and Yee, Leon and Khan, Safwat Ali and Brun, Yuriy and Medvidovi{\'c}, Nenad and Moran, Kevin},
+  booktitle={Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  pages={421--433},
+  year={2022}
+}
+
+@inproceedings{feng2024prompting,
+  title={Prompting is all you need: Automated android bug replay with large language models},
+  author={Feng, Sidong and Chen, Chunyang},
+  booktitle={Proceedings of the 46th IEEE/ACM International Conference on Software Engineering},
+  pages={1--13},
+  year={2024}
+}
+
+@inproceedings{huang2024crashtranslator,
+  title={Crashtranslator: Automatically reproducing mobile application crashes directly from stack trace},
+  author={Huang, Yuchao and Wang, Junjie and Liu, Zhe and Wang, Yawen and Wang, Song and Chen, Chunyang and Hu, Yuanzhe and Wang, Qing},
+  booktitle={Proceedings of the 46th IEEE/ACM International Conference on Software Engineering},
+  pages={1--13},
+  year={2024}
+}
+
+@inproceedings{huang2023context,
+  title={Context-aware bug reproduction for mobile apps},
+  author={Huang, Yuchao and Wang, Junjie and Liu, Zhe and Wang, Song and Chen, Chunyang and Li, Mingyang and Wang, Qing},
+  booktitle={2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)},
+  pages={2336--2348},
+  year={2023},
+  organization={IEEE}
+}
+
+@inproceedings{feng2023read,
+  title={Read It, Don't Watch It: Captioning Bug Recordings Automatically},
+  author={Feng, Sidong and Xie, Mulong and Xue, Yinxing and Chen, Chunyang},
+  booktitle={2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)},
+  pages={2349--2361},
+  year={2023},
+  organization={IEEE}
+}
+
+@inproceedings{feng2022gifdroid,
+  title={Gifdroid: Automated replay of visual bug reports for android apps},
+  author={Feng, Sidong and Chen, Chunyang},
+  booktitle={Proceedings of the 44th International Conference on Software Engineering},
+  pages={1045--1057},
+  year={2022}
+}
+
+@inproceedings{yan2024semantic,
+  title={Semantic GUI Scene Learning and Video Alignment for Detecting Duplicate Video-based Bug Reports},
+  author={Yan, Yanfu and Cooper, Nathan and Chaparro, Oscar and Moran, Kevin and Poshyvanyk, Denys},
+  booktitle={Proceedings of the IEEE/ACM 46th International Conference on Software Engineering},
+  pages={1--13},
+  year={2024}
+}
+
+@inproceedings{cao2024comprehensive,
+  title={Comprehensive Semantic Repair of Obsolete GUI Test Scripts for Mobile Applications},
+  author={Cao, Shaoheng and Pan, Minxue and Pei, Yu and Yang, Wenhua and Zhang, Tian and Wang, Linzhang and Li, Xuandong},
+  booktitle={Proceedings of the IEEE/ACM 46th International Conference on Software Engineering},
+  pages={1--13},
+  year={2024}
+}
+
+@inproceedings{huang2023conffix,
+  title={ConfFix: Repairing Configuration Compatibility Issues in Android Apps},
+  author={Huang, Huaxun and Xu, Chi and Wen, Ming and Liu, Yepang and Cheung, Shing-Chi},
+  booktitle={Proceedings of the 32nd ACM SIGSOFT International Symposium on Software Testing and Analysis},
+  pages={514--525},
+  year={2023}
+}
+
+@inproceedings{yang2023compatibility,
+  title={Compatibility issue detection for Android apps based on path-sensitive semantic analysis},
+  author={Yang, Sen and Chen, Sen and Fan, Lingling and Xu, Sihan and Hui, Zhanwei and Huang, Song},
+  booktitle={2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)},
+  pages={257--269},
+  year={2023},
+  organization={IEEE}
+}
+
+@inproceedings{zhang2023automated,
+  title={Automated and Context-Aware Repair of Color-Related Accessibility Issues for Android Apps},
+  author={Zhang, Yuxin and Chen, Sen and Fan, Lingling and Chen, Chunyang and Li, Xiaohong},
+  booktitle={Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  pages={1255--1267},
+  year={2023}
+}
+
+@inproceedings{zhao2022towards,
+  title={Towards automatically repairing compatibility issues in published Android apps},
+  author={Zhao, Yanjie and Li, Li and Liu, Kui and Grundy, John},
+  booktitle={Proceedings of the 44th International Conference on Software Engineering},
+  pages={2142--2153},
+  year={2022}
+}
+
+@inproceedings{alotaibi2021automated,
+  title={Automated repair of size-based inaccessibility issues in mobile applications},
+  author={Alotaibi, Ali S and Chiou, Paul T and Halfond, William GJ},
+  booktitle={2021 36th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  pages={730--742},
+  year={2021},
+  organization={IEEE}
+}
+
+@article{moran2018machine,
+  title={Machine learning-based prototyping of graphical user interfaces for mobile apps},
+  author={Moran, Kevin and Bernal-C{\'a}rdenas, Carlos and Curcio, Michael and Bonett, Richard and Poshyvanyk, Denys},
+  journal={IEEE Transactions on Software Engineering},
+  volume={46},
+  number={2},
+  pages={196--221},
+  year={2018},
+  publisher={IEEE}
+}
+
+@inproceedings{nguyen2015reverse,
+  title={Reverse engineering mobile application user interfaces with remaui (t)},
+  author={Nguyen, Tuan Anh and Csallner, Christoph},
+  booktitle={2015 30th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  pages={248--259},
+  year={2015},
+  organization={IEEE}
+}
+
+@inproceedings{bao2015scvripper,
+  title={scvRipper: video scraping tool for modeling developers' behavior using interaction data},
+  author={Bao, Lingfeng and Li, Jing and Xing, Zhenchang and Wang, Xinyu and Zhou, Bo},
+  booktitle={2015 IEEE/ACM 37th IEEE International Conference on Software Engineering},
+  volume={2},
+  pages={673--676},
+  year={2015},
+  organization={IEEE}
+}
+
+@inproceedings{dixon2010prefab,
+  title={Prefab: implementing advanced behaviors using pixel-based reverse engineering of interface structure},
+  author={Dixon, Morgan and Fogarty, James},
+  booktitle={Proceedings of the SIGCHI Conference on Human Factors in Computing Systems},
+  pages={1525--1534},
+  year={2010}
+}
+
+@inproceedings{qian2020roscript,
+  title={Roscript: a visual script driven truly non-intrusive robotic testing system for touch screen applications},
+  author={Qian, Ju and Shang, Zhengyu and Yan, Shuoyan and Wang, Yan and Chen, Lin},
+  booktitle={Proceedings of the ACM/IEEE 42nd International Conference on Software Engineering},
+  pages={297--308},
+  year={2020}
+}
+
+@inproceedings{yeh2009sikuli,
+  title={Sikuli: using GUI screenshots for search and automation},
+  author={Yeh, Tom and Chang, Tsung-Hsiang and Miller, Robert C},
+  booktitle={Proceedings of the 22nd annual ACM symposium on User interface software and technology},
+  pages={183--192},
+  year={2009}
+}
+
+@article{chen2019gallery,
+  title={Gallery dc: Design search and knowledge discovery through auto-created gui component gallery},
+  author={Chen, Chunyang and Feng, Sidong and Xing, Zhenchang and Liu, Linda and Zhao, Shengdong and Wang, Jinshui},
+  journal={Proceedings of the ACM on Human-Computer Interaction},
+  volume={3},
+  number={CSCW},
+  pages={1--22},
+  year={2019},
+  publisher={ACM New York, NY, USA}
+}
+
+@article{meter,
+  title={Gui-guided test script repair for mobile apps},
+  author={Pan, Minxue and Xu, Tongtong and Pei, Yu and Li, Zhong and Zhang, Tian and Li, Xuandong},
+  journal={IEEE Transactions on Software Engineering},
+  volume={48},
+  number={3},
+  pages={910--929},
+  year={2020},
+  publisher={IEEE}
+}
+
+@inproceedings{mapit,
+  title={Ui test migration across mobile platforms},
+  author={Talebipour, Saghar and Zhao, Yixue and Dojcilovi{\'c}, Luka and Li, Chenggang and Medvidovi{\'c}, Nenad},
+  booktitle={2021 36th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  pages={756--767},
+  year={2021},
+  organization={IEEE}
+}
+
+@inproceedings{xiong2023empirical,
+  title={An empirical study of functional bugs in android apps},
+  author={Xiong, Yiheng and Xu, Mengqian and Su, Ting and Sun, Jingling and Wang, Jue and Wen, He and Pu, Geguang and He, Jifeng and Su, Zhendong},
+  booktitle={Proceedings of the 32nd ACM SIGSOFT International Symposium on Software Testing and Analysis},
+  pages={1319--1331},
+  year={2023}
+}
+
+@article{hu2024auitestagent,
+  title={AUITestAgent: Automatic Requirements Oriented GUI Function Testing},
+  author={Hu, Yongxiang and Wang, Xuan and Wang, Yingchuan and Zhang, Yu and Guo, Shiyu and Chen, Chaoyi and Wang, Xin and Zhou, Yangfan},
+  journal={arXiv preprint arXiv:2407.09018},
+  year={2024}
+}
+
+@article{liu2024vision,
+  title={Vision-driven Automated Mobile GUI Testing via Multimodal Large Language Model},
+  author={Liu, Zhe and Li, Cheng and Chen, Chunyang and Wang, Junjie and Wu, Boyu and Wang, Yawen and Hu, Jun and Wang, Qing},
+  journal={arXiv preprint arXiv:2407.03037},
+  year={2024}
+}
+
+@online{guipilot-website,
+    title        = {Anonymous Website for GUIPilot},
+    howpublished = {\url{https://sites.google.com/view/guipilot/home}}
+}
+
+
+@online{dataset-examples,
+    title        = {Anonymous Website: Simulation Dataset Examples},
+    howpublished = {\url{https://sites.google.com/view/guipilot/dataset}}
+}
+
+
+@online{qualitative-rq1,
+    title        = {Anonymous Website: Qualitative Analysis on RQ1},
+    howpublished = {\url{https://sites.google.com/view/guipilot/qualitative-analysis-rq1}}
+}
+
+
+@online{case-study,
+    title        = {Anonymous Website: Case Study},
+    howpublished = {\url{https://sites.google.com/view/guipilot/case-study}}
+}
+
+@online{rq3,
+    title = {Anonymous Website: Failure Examples of Widget Detector},
+    howpublished = {\url{https://sites.google.com/view/guipilot/qualitative-analysis-rq3}}
+}
+
+@online{code,
+title = {Code Repository for GUIPilot},
+howpublished = {\url{https://github.com/code-philia/GUIPilot}}
+}
+
+@inproceedings{zhang2024synthesis,
+  title={Synthesis-Based Enhancement for GUI Test Case Migration},
+  author={Zhang, Yakun and Zhu, Qihao and Yan, Jiwei and Liu, Chen and Zhang, Wenjie and Zhao, Yifan and Hao, Dan and Zhang, Lu},
+  booktitle={Proceedings of the 33rd ACM SIGSOFT International Symposium on Software Testing and Analysis},
+  pages={869--881},
+  year={2024}
+}
+
+@inproceedings{song2017ehbdroid,
+  title={EHBDroid: Beyond GUI testing for Android applications},
+  author={Song, Wei and Qian, Xiangxing and Huang, Jeff},
+  booktitle={2017 32nd IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  pages={27--37},
+  year={2017},
+  organization={IEEE}
+}
+
+@inproceedings{saddler2017eventflowslicer,
+  title={EventFlowSlicer: a tool for generating realistic goal-driven GUI tests.},
+  author={Saddler, Jonathan A and Cohen, Myra B},
+  booktitle={ASE},
+  pages={955--960},
+  year={2017}
+}
+
+@inproceedings{mirzaei2016reducing,
+  title={Reducing combinatorics in GUI testing of android applications},
+  author={Mirzaei, Nariman and Garcia, Joshua and Bagheri, Hamid and Sadeghi, Alireza and Malek, Sam},
+  booktitle={Proceedings of the 38th international conference on software engineering},
+  pages={559--570},
+  year={2016}
+}
+
+@inproceedings{ye2021empirical,
+  title={An empirical study of GUI widget detection for industrial mobile games},
+  author={Ye, Jiaming and Chen, Ke and Xie, Xiaofei and Ma, Lei and Huang, Ruochen and Chen, Yingfeng and Xue, Yinxing and Zhao, Jianjun},
+  booktitle={Proceedings of the 29th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  pages={1427--1437},
+  year={2021}
+}
+
+@online{gui-development-cycle,
+title = {Application Development Life Cycle Explained: From Concept to Launch},
+author = {Nazar Kvartalnyi},
+howpublished = {\url{https://inoxoft.com/blog/stages-of-app-development/}}
+}
+
+@article{su2021fully,
+  title={Fully automated functional fuzzing of Android apps for detecting non-crashing logic bugs},
+  author={Su, Ting and Yan, Yichen and Wang, Jue and Sun, Jingling and Xiong, Yiheng and Pu, Geguang and Wang, Ke and Su, Zhendong},
+  journal={Proceedings of the ACM on Programming Languages},
+  volume={5},
+  number={OOPSLA},
+  pages={1--31},
+  year={2021},
+  publisher={ACM New York, NY, USA}
+}
+
+@article{zhao2022recdroid,
+  title={Recdroid+: Automated end-to-end crash reproduction from bug reports for android apps},
+  author={Zhao, Yu and Su, Ting and Liu, Yang and Zheng, Wei and Wu, Xiaoxue and Kavuluru, Ramakanth and Halfond, William GJ and Yu, Tingting},
+  journal={ACM Transactions on Software Engineering and Methodology (TOSEM)},
+  volume={31},
+  number={3},
+  pages={1--33},
+  year={2022},
+  publisher={ACM New York, NY}
+}
+
+@inproceedings{su2017guided,
+  title={Guided, stochastic model-based GUI testing of Android apps},
+  author={Su, Ting and Meng, Guozhu and Chen, Yuting and Wu, Ke and Yang, Weiming and Yao, Yao and Pu, Geguang and Liu, Yang and Su, Zhendong},
+  booktitle={Proceedings of the 2017 11th joint meeting on foundations of software engineering},
+  pages={245--256},
+  year={2017}
+}
+
+@online{gui-testing-market,
+    title = {Global GUI Testing Tool Industry Research and Trends Analysis Report},
+    author = {Market IntelliX},
+    howpublished = {\url{https://www.marketintellix.com/sample-request/global-gui-testing-tool-industry-265845}} 
+}
+
+@inproceedings{lin2021phishpedia,
+  title={Phishpedia: A hybrid deep learning based approach to visually identify phishing webpages},
+  author={Lin, Yun and Liu, Ruofan and Divakaran, Dinil Mon and Ng, Jun Yang and Chan, Qing Zhou and Lu, Yiwen and Si, Yuxuan and Zhang, Fan and Dong, Jin Song},
+  booktitle={30th USENIX Security Symposium (USENIX Security 21)},
+  pages={3793--3810},
+  year={2021}
+}
+
+@article{bernal2022translating,
+  title={Translating video recordings of complex mobile app ui gestures into replayable scenarios},
+  author={Bernal-C{\'a}rdenas, Carlos and Cooper, Nathan and Havranek, Madeleine and Moran, Kevin and Chaparro, Oscar and Poshyvanyk, Denys and Marcus, Andrian},
+  journal={IEEE Transactions on Software Engineering},
+  volume={49},
+  number={4},
+  pages={1782--1803},
+  year={2022},
+  publisher={IEEE}
+}
+
+@inproceedings{yolov9,
+  title={Yolov9: Learning what you want to learn using programmable gradient information},
+  author={Wang, Chien-Yao and Yeh, I-Hau and Mark Liao, Hong-Yuan},
+  booktitle={European conference on computer vision},
+  pages={1--21},
+  year={2024},
+  organization={Springer}
+}
+
+@article{yolov10,
+  title={Yolov10: Real-time end-to-end object detection},
+  author={Wang, Ao and Chen, Hui and Liu, Lihao and Chen, Kai and Lin, Zijia and Han, Jungong and Ding, Guiguang},
+  journal={arXiv preprint arXiv:2405.14458},
+  year={2024}
+}
+
+@inproceedings{ross2017focal,
+  title={Focal loss for dense object detection},
+  author={Ross, T-YLPG and Doll{\'a}r, GKHP},
+  booktitle={proceedings of the IEEE conference on computer vision and pattern recognition},
+  pages={2980--2988},
+  year={2017}
+}
+
+@inproceedings{zhao2024detrs,
+  title={Detrs beat yolos on real-time object detection},
+  author={Zhao, Yian and Lv, Wenyu and Xu, Shangliang and Wei, Jinman and Wang, Guanzhong and Dang, Qingqing and Liu, Yi and Chen, Jie},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={16965--16974},
+  year={2024}
+}
+
+@article{ren2016faster,
+  title={Faster R-CNN: Towards real-time object detection with region proposal networks},
+  author={Ren, Shaoqing and He, Kaiming and Girshick, Ross and Sun, Jian},
+  journal={IEEE transactions on pattern analysis and machine intelligence},
+  volume={39},
+  number={6},
+  pages={1137--1149},
+  year={2016},
+  publisher={IEEE}
+}
+
+@article{wagner1974string,
+  title={The string-to-string correction problem},
+  author={Wagner, Robert A and Fischer, Michael J},
+  journal={Journal of the ACM (JACM)},
+  volume={21},
+  number={1},
+  pages={168--173},
+  year={1974},
+  publisher={ACM New York, NY, USA}
+}
+
+@online{mockup-commonality,
+title = {Basic Prototyping},
+author = {UX Tools},
+year = {2022},
+howpublished = {\url{https://uxtools.co/survey/2022/basic-prototyping}}}
+
+@online{ultralytics-yolov8,
+title = {Ultralytics YOLOv8},
+author = {Ultralytics YOLO Docs},
+howpublished = {\url{https://docs.ultralytics.com/models/yolov8/}}
+}
+
+@article{liu2024ocrbench,
+  title={OCRBench: on the hidden mystery of OCR in large multimodal models},
+  author={Liu, Yuliang and Li, Zhang and Huang, Mingxin and Yang, Biao and Yu, Wenwen and Li, Chunyuan and Yin, Xu-Cheng and Liu, Cheng-Lin and Jin, Lianwen and Bai, Xiang},
+  journal={Science China Information Sciences},
+  volume={67},
+  number={12},
+  pages={220102},
+  year={2024},
+  publisher={Springer}
+}
+
+@article{song2025layertracer,
+  title={LayerTracer: Cognitive-Aligned Layered SVG Synthesis via Diffusion Transformer},
+  author={Song, Yiren and Chen, Danze and Shou, Mike Zheng},
+  journal={arXiv preprint arXiv:2502.01105},
+  year={2025}
+}
