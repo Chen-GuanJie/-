@@ -37,11 +37,11 @@
     degree: "工学硕士",
     supervisor: "林云",
     supervisor_en: "Prof. Lin Yun",
-    title: "上海交通大学学位论文格式模板",
-    title_en: "DISSERTATION TEMPLATE FOR MASTER DEGREE OF ENGINEERING IN SHANGHAI JIAO TONG UNIVERSITY",
+    title: "基于语言模型的移动应用GUI一致性自动化测试方法研究",
+    title_en: "Automated GUI Consistency Testing for Mobile Applications Based on Language Models",
     school: "计算机学院",
     school_en: "School of Computer Science",
-    major: "计算机专业",
+    major: "电子信息专业",
   ),
 )
 
