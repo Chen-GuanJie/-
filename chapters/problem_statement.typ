@@ -1,9 +1,8 @@
-= 问题陈述 <sec:ps>
 #import "@preview/modern-sjtu-thesis:0.5.1": *
+#import "../define.typ": *
+= 问题陈述 <sec:ps>
 
 在本节中，我们给出形式化定义和问题陈述。
-#let bf(x) = math.bold(math.upright(x))
-
 
 
 *屏幕（Screen）。* 我们将屏幕 $bf(s)$ 定义为单个GUI界面，其中包含多个控件，包括图像、按钮、文本等。每个控件 $bf(w)$ 以 $chevron.l x, y, w, h, t chevron.r$ 的格式表示。具体而言，$x, y$ 是控件在屏幕上的左上角坐标，以截图的左上角为原点。$w, h$ 是控件相对于完整截图尺寸的宽度和高度。$t$ 是控件的类型。我们定义了7种主要的控件类型，详见(tudo img:widget-class)。一个屏幕包含一组控件，即 $bf(W) = {bf(w)_i | bf(w)_i = chevron.l x, y, w, h, t chevron.r}$。

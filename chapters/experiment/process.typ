@@ -1,4 +1,4 @@
-#let bf(x) = math.bold(math.upright(x))
+#import "../../define.typ": *
 == 流程一致性实验 <exp:rq2>
 
 === 实验设置

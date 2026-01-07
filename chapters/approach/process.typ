@@ -1,5 +1,5 @@
 #import "@preview/modern-sjtu-thesis:0.5.1": *
-#let bf(x) = math.bold(math.upright(x))
+#import "../../define.typ": *
 
 == 流程不一致性检测<app:process>
 

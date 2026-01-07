@@ -1,6 +1,5 @@
 #import "@preview/modern-sjtu-thesis:0.5.1": *
-
-#let bf(x) = math.bold(math.upright(x))
+#import "../../define.typ": *
 
 == 界面不一致性检测 <app:screen>
 在本工作中，我们首先训练一个计算机视觉模型，用于在设计原型界面和应用实现界面中识别预定义的组件类型。
