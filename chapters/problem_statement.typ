@@ -42,9 +42,9 @@ $ <eq:process-change>
 #imagex(
   image(
     "../figures/introduction_example.pdf",
-    width: 80%,
+    width: 95%,
   ),
-  caption: [内热源沿径向的分布],
+  caption: [交易类移动应用登录流程的设计稿示例，包含五个屏幕和四个转换。],
   caption-en: [A design mock-up on the login process of a trading mobile application, consisting of five screens and four transitions.],
   label-name: "mockup-example",
 )
