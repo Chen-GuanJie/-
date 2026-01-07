@@ -1,3 +1,4 @@
+#import  "../../define.typ":*
 == 屏幕一致性检测实验 <exp:rq1>
 
 === 实验设置
@@ -36,23 +37,23 @@ $ <eq:metrics>
     table.hline(),
     [*多余控件*], [GVT], [0.793], [0.899], [1.000], [0.690], [0.001],
     [], [VLM], [0.088], [0.137], [1.000], [0.056], [1.230],
-    [], [GUIPilot], [*0.998*], [*0.986*], [1.000], [*0.982*], [0.001],
+    [], [#(tool)], [*0.998*], [*0.986*], [1.000], [*0.982*], [0.001],
     table.hline(stroke: 0.5pt + gray),
     [*缺失控件*], [GVT], [0.912], [0.938], [1.000], [0.840], [0.001],
     [], [VLM], [0.123], [0.154], [1.000], [0.073], [1.430],
-    [], [GUIPilot], [*0.997*], [*0.984*], [1.000], [*0.978*], [0.001],
+    [], [#(tool)], [*0.997*], [*0.984*], [1.000], [*0.978*], [0.001],
     table.hline(stroke: 0.5pt + gray),
     [*交换控件*], [GVT], [0.283], [0.430], [1.000], [0.200], [0.001],
     [], [VLM], [0.045], [0.078], [0.910], [0.026], [1.530],
-    [], [GUIPilot], [*0.987*], [*0.992*], [1.000], [*0.971*], [0.001],
+    [], [#(tool)], [*0.987*], [*0.992*], [1.000], [*0.971*], [0.001],
     table.hline(stroke: 0.5pt + gray),
     [*文本变更*], [GVT], [0.998], [0.999], [0.981], [0.960], [0.001],
     [], [VLM], [0.119], [0.248], [0.992], [0.086], [1.870],
-    [], [GUIPilot], [0.996], [0.999], [0.981], [0.960], [0.001],
+    [], [#(tool)], [0.996], [0.999], [0.981], [0.960], [0.001],
     table.hline(stroke: 0.5pt + gray),
     [*颜色变更*], [GVT], [1.000], [0.999], [1.000], [0.990], [0.001],
     [], [VLM], [0.075], [0.177], [0.964], [0.052], [3.110],
-    [], [GUIPilot], [1.000], [0.999], [1.000], [0.990], [0.001],
+    [], [#(tool)], [1.000], [0.999], [1.000], [0.990], [0.001],
     table.hline(),
   ),
   caption: [屏幕一致性实验结果对比],
@@ -68,9 +69,9 @@ $ <eq:metrics>
     image("../../figures/gvt_fails_guipilot_success/2_guipilot.pdf"),
 
     align(center)[GVT (示例 1)],
-    align(center)[GUIPilot (示例 1)],
+    align(center)[#(tool) (示例 1)],
     align(center)[GVT (示例 2)],
-    align(center)[GUIPilot (示例 2)],
+    align(center)[#(tool) (示例 2)],
 
     image("../../figures/gvt_fails_guipilot_success/5_gvt.pdf"),
     image("../../figures/gvt_fails_guipilot_success/5_guipilot.pdf"),
@@ -78,9 +79,9 @@ $ <eq:metrics>
     image("../../figures/gvt_fails_guipilot_success/6_guipilot.pdf"),
 
     align(center)[GVT (示例 3)],
-    align(center)[GUIPilot (示例 3)],
+    align(center)[#(tool) (示例 3)],
     align(center)[GVT (示例 4)],
-    align(center)[GUIPilot (示例 4)],
+    align(center)[#(tool) (示例 4)],
 
     image("../../figures/gvt_fails_guipilot_success/9_gvt.pdf"),
     image("../../figures/gvt_fails_guipilot_success/9_guipilot.pdf"),
@@ -88,23 +89,23 @@ $ <eq:metrics>
     image("../../figures/gvt_fails_guipilot_success/11_guipilot.pdf"),
 
     align(center)[GVT (示例 5)],
-    align(center)[GUIPilot (示例 5)],
+    align(center)[#(tool) (示例 5)],
     align(center)[GVT (示例 6)],
-    align(center)[GUIPilot (示例 6)],
+    align(center)[#(tool) (示例 6)],
   ),
-  caption: [GVT 和 GUIPilot 之间的比较。在每张图中，原始屏幕显示在左侧，变异屏幕（插入、删除或交换后）显示在右侧。红色框表示多余或缺失的控件。绿色框表示不受变异影响的控件。黄色框表示由于变异而移动但仍能识别匹配的控件。],
+  caption: [GVT 和 #(tool) 之间的比较。在每张图中，原始屏幕显示在左侧，变异屏幕（插入、删除或交换后）显示在右侧。红色框表示多余或缺失的控件。绿色框表示不受变异影响的控件。黄色框表示由于变异而移动但仍能识别匹配的控件。],
 ) <fig:gui-win>
 
-@tab:screen-inconsistency-results 展示了 GUIPilot 与 GVT @moran2018automated 的对比分析结果。总体来看，GUIPilot 在检测布局违规（如多余控件和控件交换）方面表现更优。对于颜色和文本更改等原地语义变化，GUIPilot 的性能与 GVT 相当。值得注意的是，GUIPilot 在不增加额外运行时开销的情况下实现了这些结果。
+@tab:screen-inconsistency-results 展示了 #(tool) 与 GVT @moran2018automated 的对比分析结果。总体来看，GUIPilot 在检测布局违规（如多余控件和控件交换）方面表现更优。对于颜色和文本更改等原地语义变化，GUIPilot 的性能与 GVT 相当。值得注意的是，GUIPilot 在不增加额外运行时开销的情况下实现了这些结果。
 
 此外，直接查询 VLM 的分类性能较差，且运行时间较长。实验观察到 VLM 可能会产生幻觉，报告不存在的不一致（假阳性），或者虽然识别出不一致但分配了错误的控件 ID（假阳性和假阴性）。
 
-=== GUIPilot 优势分析
-GVT 更容易受到位置偏移的影响。GVT 主要依赖控件的相对位置进行匹配，对 GUI 布局的微小移动非常敏感。相比之下，GUIPilot 同时考虑控件的位置、形状和类型，即使发生微小偏移也能正确匹配。如 @fig:gui-win 所示，插入或删除控件时，若后续控件位置略有偏移，GVT 会出现匹配错误，而 GUIPilot 具备更强鲁棒性。
+=== #(tool) 优势分析
+GVT 更容易受到位置偏移的影响。GVT 主要依赖控件的相对位置进行匹配，对 GUI 布局的微小移动非常敏感。相比之下，GUIPilot 同时考虑控件的位置、形状和类型，即使发生微小偏移也能正确匹配。如 @fig:gui-win 所示，插入或删除控件时，若后续控件位置略有偏移，GVT 会出现匹配错误，而 #(tool) 具备更强鲁棒性。
 
 此外，GVT 严格的匹配阈值可能忽略正确配对。在控件交换场景下（@fig:gui-win 示例 5-6），GVT 由于阈值限制无法识别交换配对，往往将其报告为缺失或多余控件。GUIPilot 则能正确将控件与其交换对进行匹配，报告更为准确。
 
-=== GUIPilot 假阳性分析
+=== #(tool) 假阳性分析
 显著的布局变化时，GUIPilot 可能出现假阳性。尽管对布局扰动更具鲁棒性，但在插入或相邻控件类型、形状相似时，仍可能误匹配。如 @fig:gui-fail （FP 示例 1-2）所示，插入或删除控件可能与相邻控件配对，导致后续控件未配对并被误报为缺失或多余元素。潜在补救措施包括开发更鲁棒的相似性度量以更好捕捉语义和上下文。
 
 重叠控件也会导致假阳性。控件交换有时会导致控件重叠（FP 示例 3），可能导致控件错误匹配或干扰外观，如改变底层控件颜色。
@@ -119,9 +120,9 @@ GVT 更容易受到位置偏移的影响。GVT 主要依赖控件的相对位置
     image("../../figures/guipilot_fn/3.pdf"), [], [],
     align(center)[FN 示例 1], [], [],
   ),
-  caption: [GUIPilot 的假阳性 (FP) 和假阴性 (FN) 示例。],
+  caption: [#(tool) 的假阳性 (FP) 和假阴性 (FN) 示例。],
 ) <fig:gui-fail>
 
-=== GUIPilot 假阴性分析
+=== #(tool) 假阴性分析
 与假阳性原因类似，显著变化也会导致假阴性。控件未对齐时，实际缺失或多余元素可能与不相关控件配对，导致未被报告。此外，控件检测器故障也会导致假阴性。如 @fig:gui-fail （FN 示例 1）所示，插入控件未被目标检测器检测到，导致遗漏报告。
 

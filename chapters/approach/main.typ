@@ -1,4 +1,5 @@
 #import "@preview/modern-sjtu-thesis:0.5.1": *
+#import  "../../define.typ":*
 = 方法实现
 == 总体概述
 
@@ -7,12 +8,12 @@
     "../../figures/overview.pdf",
     width: 100%,
   ),
-  caption: [GUIPilot 的整体工作流程],
-  caption-en: [The overall workflow of GUIPilot],
+  caption: [#(tool) 的整体工作流程],
+  caption-en: [The overall workflow of #(tool)],
   label-name: "overview",
 )
 
-@img:overview GUIPilot 的整体工作流程。
+@img:overview #(tool) 的整体工作流程。
 输入包括运行在移动设备上的已实现应用，以及一组设计原型文档，
 每个原型通常描述一个具体的使用场景（例如“购买交易型开放式指数基金（ETF）”），并含有若干界面与交互步骤的形式化描述。
 
