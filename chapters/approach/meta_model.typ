@@ -6,7 +6,7 @@
     "../../figures/metamodel.pdf",
     width: 80%,
   ),
-  caption: [设计设计稿的元模型],
+  caption: [设计稿的元模型],
   caption-en: [The meta-model of design mock-ups],
   label-name: "meta-model",
 )
