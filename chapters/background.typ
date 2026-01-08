@@ -1,5 +1,5 @@
-= 背景介绍
-== gui测试
+= 背景介绍 <chp:background>
+== GUI测试
 移动端图形用户界面（GUI）测试一直是软件工程研究的核心领域之一。随着移动应用生态系统的快速发展，GUI测试的重要性日益凸显。现有研究工作主要围绕以下几个关键方向展开：提升测试效率与代码覆盖率@ahmed2023vialin @alshayban2022accesstext @bose2023columbus @feng2023efficiency @huang2021characterizing @vajjala2024motorease @lan2024deeply @ma2023automata @mahmud2024gui @qian2022accelerating @ran2023badge @su2022metamorphosis @sun2023property @wang2022detecting @yu2024practical，自动化测试用例生成@mariani2021semantic @mirzaei2016reducing @saddler2017eventflowslicer @song2017ehbdroid @talebipour2021ui @zhang2024learning @zhao2022avgust，缺陷重放与报告@liu2022nighthawk @rawles2024androidworld，以及代码修复@alotaibi2021automated @cao2024comprehensive @huang2023conffix @yang2023compatibility @zhang2023automated @zhao2022towards。
 
 从应用开发生命周期的角度来看@kvantalnyi2025lifecycle，GUI测试贯穿于应用从概念设计到正式发布的全过程。有效的GUI测试不仅能够发现功能性缺陷，还能识别用户界面中的可访问性问题、布局异常以及跨平台兼容性问题。近年来，随着人工智能技术的发展，特别是大语言模型（LLM）和视觉语言模型（VLM）的出现，移动端GUI测试研究迎来了新的发展机遇@team2023gemini @anthropic2024claude @openai2024gpt4o。

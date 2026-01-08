@@ -8,7 +8,7 @@
     "../../figures/process/buy/buy_copy.pdf",
     width: 80%,
   ),
-  caption: [证券买入流程，取自某工业级交易应用的设计原型。该状态转移以抽象形式描述为 ``Buy 100 shares''。],
+  caption: [证券买入流程，取自某工业级交易应用的设计原型。该状态转移以抽象形式描述为 ``Buy 100 shares``。],
   caption-en: [The process of buying stocks, taken from the design mock-up of an industrial trading application. The state transition is abstractly described as "Buy 100 shares".],
   label-name: "process-eg",
 )

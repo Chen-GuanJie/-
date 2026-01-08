@@ -1,6 +1,6 @@
 #import "@preview/modern-sjtu-thesis:0.5.1": *
 #import  "../../define.typ":*
-= 方法实现
+= 方法实现 <chp:approach>
 == 总体概述
 
 #imagex(
