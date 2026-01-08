@@ -55,8 +55,8 @@
   confidentialty-level: "internal", // 保密级别: "public" | "internal" | "secret" | "confidential"
   confidentialty-year: 2, // 保密年份数，请根据保密级别的要求填写
   date: datetime.today(),
-  original-statement-sign: place(dx: 13cm, dy: -1.3cm, image("figures/student-sign.png", height: 2em)), // 请根据签名图片的大小，自行调整图片的高度和位置
-  authorization-author-sign: place(dx: 5cm, dy: -1.3cm, image("figures/student-sign.png", height: 2em)),
+  original-statement-sign: place(dx: 13cm, dy: -1.3cm, image("figures/student-sign2.jpg", height: 2em)), // 请根据签名图片的大小，自行调整图片的高度和位置
+  authorization-author-sign: place(dx: 5cm, dy: -1.3cm, image("figures/student-sign2.jpg", height: 2em)),
   supervisor-sign: place(dx: 4cm, dy: -1.2cm, image("figures/supervisor-sign.png", height: 2em)),
 ) // 不需要显示日期和签名，可直接注释
 
@@ -253,75 +253,6 @@ Typst 使用 Hayagriva 管理参考文献，有部分细节问题还在逐步修
   label-name: "image2",
 )
 
-=== 多个图形
-
-简单插入多个图形的例子如@img:SRR 所示。这两个水平并列放置的子图共用一个图形计数器，没有各自的子图题。
-
-#imagex(
-  image("figures/emissions-variation.png"),
-  image("figures/emissions-2050.png"),
-  columns: (1fr, 1fr),
-  caption: [不同情景下上海市乘用车的温室气体排放量],
-  caption-en: [Greenhouse gas emissions from passenger cars in Shanghai under different scenarios],
-  label-name: "SRR",
-)
-
-如果多个图形相互独立，并不共用一个图形计数器，那么用 `grid` 或者
-`columns` 就可以，如@img:parallel1 与@img:parallel2。
-
-#grid(
-  align: bottom,
-  grid.cell(imagex(
-    image("figures/emissions-variation.png"),
-    caption: [温室气体排放量随时间变化的情况],
-    label-name: "parallel1",
-  )),
-  grid.cell(imagex(
-    image("figures/emissions-2050.png"),
-    caption: [2050 年的温室气体排放量],
-    label-name: "parallel2",
-  )),
-  columns: (1fr, 1fr),
-)
-
-如果要为共用一个计数器的多个子图添加子图题，使用 `subimagex`，如@img:subfigures:test1 和@img:subfigures:test2。
-
-#imagex(
-  subimagex(
-    image("figures/emissions-variation.png"),
-    caption: [温室气体排放量随时间变化的情况],
-    label-name: "test1",
-  ),
-  subimagex(
-    image("figures/emissions-2050.png"),
-    caption: [2050 年的温室气体排放量],
-    label-name: "test2",
-  ),
-  columns: (1fr, 1fr),
-  caption: [不同情景下上海市乘用车的温室气体排放量],
-  label-name: "subfigures",
-)
-
-如果需要双语图题，可以自由在 `imagex` 和 `subimagex` 添加 `caption-en` 参数。
-
-#imagex(
-  subimagex(
-    image("figures/emissions-variation.png"),
-    caption: [温室气体排放量随时间变化的情况],
-    caption-en: [Greenhouse gas emissions over time],
-    label-name: "test1",
-  ),
-  subimagex(
-    image("figures/emissions-2050.png"),
-    caption: [2050 年的温室气体排放量],
-    // caption-en: [Greenhouse gas emissions in 2050],
-    label-name: "test2",
-  ),
-  columns: (1fr, 1fr),
-  caption: [不同情景下上海市乘用车的温室气体排放量],
-  caption-en: [Greenhouse gas emissions from passenger cars in Shanghai under different scenarios],
-  label-name: "subbifigures",
-)
 
 == 表格
 
