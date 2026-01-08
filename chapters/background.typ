@@ -13,7 +13,19 @@ DOI: 10.17705/1thci.00131
 */
 
 == GUI测试
-移动端图形用户界面（GUI）测试一直是软件工程研究的核心领域之一。随着移动应用生态系统的快速发展，GUI测试的重要性日益凸显。现有研究工作主要围绕以下几个关键方向展开：提升测试效率与代码覆盖率@ahmed2023vialin @alshayban2022accesstext @bose2023columbus @feng2023efficiency @huang2021characterizing @vajjala2024motorease @lan2024deeply @ma2023automata @mahmud2024gui @qian2022accelerating @ran2023badge @su2022metamorphosis @sun2023property @wang2022detecting @yu2024practical，自动化测试用例生成@mariani2021semantic @mirzaei2016reducing @saddler2017eventflowslicer @song2017ehbdroid @talebipour2021ui @zhang2024learning @zhao2022avgust，缺陷重放与报告@liu2022nighthawk @rawles2024androidworld，以及代码修复@alotaibi2021automated @cao2024comprehensive @huang2023conffix @yang2023compatibility @zhang2023automated @zhao2022towards。
+移动端图形用户界面（GUI）测试一直是软件工程研究的核心领域之一。随着移动应用生态系统的快速发展，GUI测试的重要性日益凸显。现有研究工作主要围绕以下几个关键方向展开：
+
+=== 提升测试效率与代码覆盖率
+即便对于中等规模的移动应用，其潜在的状态空间也往往是巨大的，这使得遍历所有可能的交互路径成为一项极具挑战性的任务。为了在有限的测试预算内尽可能多地覆盖应用状态和代码逻辑，研究人员提出了一系列高效的测试策略。这包括改进探索算法（如基于强化学习或进化算法的遍历），通过静态分析优化事件序列的优先级，以及利用并行化技术加速测试执行。此外，针对特定类型的应用特性（如深层菜单、复杂手势），研究者也设计了专门的覆盖率提升方法，旨在探索那些传统随机测试难以触及的角落 @ahmed2023vialin @alshayban2022accesstext @bose2023columbus @feng2023efficiency @huang2021characterizing @vajjala2024motorease @lan2024deeply @ma2023automata @mahmud2024gui @qian2022accelerating @ran2023badge @su2022metamorphosis @sun2023property @wang2022detecting @yu2024practical。
+
+=== 自动化测试用例生成
+高质量的测试用例是保障软件质量的基石，但手动编写维护成本高昂。自动化生成技术致力于从各种输入源（如自然语言需求、用户操作视频、设计模型等）自动构建可执行的测试脚本。该方向的研究重点在于如何理解测试意图，并将其转化为精确的UI事件序列。例如，通过语义匹配技术将抽象的测试描述映射到具体的控件操作，或者通过分析应用的UI结构图来实现跨设备的测试用例迁移。这些方法显著降低了测试脚本的编写门槛，并提高了测试资产的复用性 @mariani2021semantic @mirzaei2016reducing @saddler2017eventflowslicer @song2017ehbdroid @talebipour2021ui @zhang2024learning @zhao2022avgust。
+
+=== 缺陷重放与报告
+在自动化测试或用户使用过程中发现崩溃（Crash）或异常后，如何准确地复现问题并生成开发者可读的报告是修复缺陷的关键。这一领域的研究聚焦于记录和压缩导致错误的最小事件序列，捕捉异常发生时的环境上下文（如设备状态、网络条件），并生成包含截图、日志和操作步骤的结构化报告。高效的重放技术能够帮助开发者快速定位问题的根因，减少了在调试过程中猜测和试错的时间成本 @liu2022nighthawk @rawles2024androidworld。
+
+=== 代码修复
+发现缺陷并非终点，最终目标是修复它们。自动化代码修复技术尝试利用程序分析和模式匹配来自动生成补丁，以解决常见的GUI问题。例如，针对无障碍性（Accessibility）问题（如按钮尺寸过小、对比度不足），或兼容性问题（如布局在不同屏幕尺寸下的错位），自动化工具可以直接定位相关的代码片段或资源文件，并推荐具体的修改建议。这不仅加快了迭代速度，也规范了代码质量，确保应用符合各类设计和实现标准 @alotaibi2021automated @cao2024comprehensive @huang2023conffix @yang2023compatibility @zhang2023automated @zhao2022towards。
 
 从应用开发生命周期的角度来看@kvantalnyi2025lifecycle，GUI测试贯穿于应用从概念设计到正式发布的全过程。有效的GUI测试不仅能够发现功能性缺陷，还能识别用户界面中的可访问性问题、布局异常以及跨平台兼容性问题。近年来，随着人工智能技术的发展，特别是大语言模型（LLM）和视觉语言模型（VLM）的出现，移动端GUI测试研究迎来了新的发展机遇@team2023gemini @anthropic2024claude @openai2024gpt4o。
 
@@ -35,7 +47,23 @@ GUI组件匹配在测试用例复用和跨平台测试迁移中发挥着关键�
 
 然而，这些基于成对规则的匹配方法对界面变化较为敏感@mariani2021semantic。当GUI经历布局调整或视觉更新时，原有的匹配规则可能失效，导致测试用例无法正确执行。为解决这一问题，Zhang等人@zhang2024learning 提出了基于学习的组件匹配方法，通过训练神经网络来学习组件之间的语义相似性，使匹配过程能够更好地适应GUI的动态变化。该方法在GUI测试用例迁移场景中展现出了显著的性能优势。
 == 基于大语言模型的移动端GUI测试
+
+=== 大语言模型
+大语言模型（Large Language Model, LLM）代表了人工智能领域在自然语言处理（NLP）方面的突破性进展。这类模型通常基于Transformer架构，拥有数十亿甚至上万亿的参数规模，通过在海量文本数据上的预训练，习得了丰富的语言知识、世界常识以及逻辑推理能力。LLM不仅在机器翻译、文本摘要、问答系统等传统NLP任务上表现出色，更展现出了惊人的少样本（Few-shot）甚至零样本（Zero-shot）学习能力，能够灵活适应各种复杂的下游任务。
+
+Google的Gemini @team2023gemini 系列模型展示了原生的多模态理解与生成能力，能够无缝处理文本、图像、音频和视频等多种信息模态，为构建通用的智能助手奠定了基础。Anthropic的Claude @anthropic2024claude 则以其在长上下文窗口（Long Context Window）和安全性对齐（Safety Alignment）方面的卓越表现著称，特别适合处理长文档分析及高可靠性要求的任务。OpenAI的GPT-4o @openai2024gpt4o 更是将LLM的性能推向了新的高度，其强大的推理能力、代码生成能力以及对人类指令的精准遵循，使其成为了当前最先进、应用最广泛的大模型代表之一，极大地推动了AI Agent在软件工程、科学研究等垂直领域的落地应用。这三类模型的快速演进，标志着人工智能正从单一的专用模型迈向通用的基础模型时代。
+
 大语言模型的快速发展为移动端GUI测试带来了革命性的变化@wang2024software。LLM强大的自然语言理解和代码生成能力，使其能够在多个GUI测试任务中发挥重要作用。
+
+=== 视觉语言模型
+
+视觉语言模型（Vision-Language Model, VLM）是连接计算机视觉与自然语言处理的关键技术，旨在赋予模型同时理解和处理视觉（图像、视频）与文本信息的能力。与传统的大语言模型不同，VLM在架构上通常引入了视觉编码器（Visual Encoder），用于将输入的视觉信号转化为高维的嵌入向量。随后，这些视觉特征通过模态对齐模块（如Projection Layer、Q-Former或Cross-attention）被映射到语言模型的语义空间中，使得语言模型能够像处理文本一样“看到”并理解图像内容，从而实现跨模态的统一推理。
+
+该领域的研究涵盖了从早期的图文检索、图像描述（Image Captioning）到复杂的视觉问答（Visual Question Answering, VQA）等多种任务。随着指令微调（Instruction Tuning）技术的引入，现代VLM（如LLaVA、CogVLM）进一步具备了遵循人类自然语言指令进行视觉任务规划和执行的能力。在多模态知识方面，VLM不仅学习了对象识别、场景理解等视觉感知知识，还掌握了通过光学字符识别（OCR）提取图像文本、理解空间位置关系（Spatial Reasoning）以及结合世界知识进行推理的高阶认知能力。
+
+在移动端GUI测试场景中，VLM的引入具有革命性意义。它能够模拟人类用户的视觉感知过程，直接从屏幕截图中识别图标、按钮及文本内容，而无需依赖底层的视图树结构（View Hierarchy）。这使得测试智能体能够适应动态变化的界面，处理非标准控件（如游戏画面或自定义视图），并基于视觉反馈进行闭环控制，极大地提升了自动化测试的适用范围和鲁棒性。
+
+
 === 智能输入生成
 
 传统的GUI测试输入生成方法通常依赖随机策略或预定义规则，难以生成符合应用上下文的有意义输入。LLM的引入有效解决了这一问题。
@@ -77,8 +105,4 @@ Rico@deka2017rico、PixelHelp@li2020mapping 和AITW@rawles2023android 是该类�
 为了训练高性能的 UI 检测模型，构建高质量的标注数据集至关重要。数据集通常来源于真实的移动应用截图或设计稿，并覆盖不同的分辨率、色彩主题及语言环境以保证模型的泛化能力，例如 Rico 数据集 @deka2017rico 提供了大规模的 Android 应用界面截图与布局信息。在数据预处理阶段，广泛采用数据增强技术（Data Augmentation），如随机缩放、裁剪、色彩抖动及高斯模糊等，以模拟真实设备上的渲染差异与噪声干扰，从而提升模型在不同测试环境下的鲁棒性。
 
 在模型推理阶段，原始输出通常包含大量重叠的候选框。为此，非极大值抑制（Non-Maximum Suppression, NMS）技术被用于去除冗余预测，仅保留置信度最高且重叠度（Intersection over Union, IoU）符合要求的边界框。此外，针对移动应用中广泛存在的文本类控件（如 TextButton、CombinedButton），单纯的视觉检测往往只能定位其位置，难以获取文本内容。因此，工业界通常将光学字符识别（OCR）引擎集成到后处理流水线中，通过位置匹配将 OCR 提取的文本信息绑定到相应的视觉控件上，从而形成包含“位置-类型-内容”的完整语义描述。
-
-== 大语言模型
-
-== vlm
 
