@@ -31,12 +31,12 @@
   print: false, // 打印模式, 设置为 true 时，根据奇偶页调整页边距
   anonymous: false, // 盲审模式
   info: (
-    student_id: "123033910155",
-    name: "陈贯劼",
-    name_en: "Chen Guan Jie",
+    student_id: "",
+    name: "",
+    name_en: "",
     degree: "工学硕士",
-    supervisor: "林云",
-    supervisor_en: "Prof. Lin Yun",
+    supervisor: "",
+    supervisor_en: "",
     title: "基于语言模型的移动应用GUI一致性自动化测试方法研究",
     title_en: "Automated GUI Consistency Testing for Mobile Applications Based on Language Models",
     school: "计算机学院",
@@ -55,9 +55,9 @@
   confidentialty-level: "internal", // 保密级别: "public" | "internal" | "secret" | "confidential"
   confidentialty-year: 2, // 保密年份数，请根据保密级别的要求填写
   date: datetime.today(),
-  original-statement-sign: place(dx: 13cm, dy: -1.3cm, image("figures/student-sign2.jpg", height: 2em)), // 请根据签名图片的大小，自行调整图片的高度和位置
-  authorization-author-sign: place(dx: 5cm, dy: -1.3cm, image("figures/student-sign2.jpg", height: 2em)),
-  supervisor-sign: place(dx: 4cm, dy: -1.2cm, image("figures/supervisor-sign.png", height: 2em)),
+  // original-statement-sign, // 请根据签名图片的大小，自行调整图片的高度和位置
+  // authorization-author-sign: place(dx: 5cm, dy: -1.3cm, image("figures/student-sign2.jpg", height: 2em)),
+  // supervisor-sign: place(dx: 4cm, dy: -1.2cm, image("figures/supervisor-sign.png", height: 2em)),
 ) // 不需要显示日期和签名，可直接注释
 
 #show: preface
@@ -129,9 +129,9 @@
 
 //附录
 #show: appendix
-#acknowledgement[
-  致谢主要感谢导师和对论文工作有直接贡献和帮助的人士和单位。致谢言语应谦虚诚恳，实事求是。
-]
+// #acknowledgement[
+//   致谢主要感谢导师和对论文工作有直接贡献和帮助的人士和单位。致谢言语应谦虚诚恳，实事求是。
+// ]
 
 #achievement(
   patents: ("第二发明人, 面向需求设计稿的GUI软件测试系统及方法[P], 专利申请号CN202510267792.7",),
