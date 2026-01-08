@@ -67,7 +67,7 @@ $ s i m_(s h a p e) = min(w_i/h_i, w_j/h_j) / max(w_i/h_i, w_j/h_j) $
 最终的相似度矩阵元素 $A_(i,j)$ 通常由各分项指标的加权几何平均得出：
 $
   A_(i,j) = s i m_(p o s)^(w_p) dot s i m_(a r e a)^(w_a) dot s i m_(s h a p e)^(w_s) dot s i m_(t y p e)^(w_t) dot s i m_(t e x t)^(w_(t x t)) dot s i m_(v i s u a l)^(w_(v i s))
-$
+$<eq:widget-similarity>
 其中权重 $w_k$ 可通过交叉验证或在小规模标注数据集上进行调优。计算完成后，会对 $A_(i,j)$ 执行阈值过滤（即若 $A_(i,j) < tau$ 则视为无效匹配），以降低错误匹配的概率。同时，对于面积过小的噪声框或非可视节点，应在预处理阶段予以剔除。
 
 上述设计在保证模型表达力的同时，兼顾了对检测误差、样式差异以及局部视觉变化的鲁棒性。
