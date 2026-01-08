@@ -96,12 +96,17 @@
   width: 50%,
   columns: (1fr, 1.5fr),
 )[
-  / $epsilon$: 介电常数
-  / $mu$: 磁导率
-  / $epsilon$: 介电常数
-  / $mu$: 磁导率
-  / $epsilon$: 介电常数
-  / $mu$: 磁导率
+  / $screen$: 屏幕
+  / $widget$: 控件
+  / $action$: 操作
+  / $process$: 流程
+  / $s r c$: 源屏幕
+  / $t a r$: 目标屏幕
+  / $action$: 操作
+  / $actionchain$: 操作链
+  / $actionchainset$: 操作链集合
+  / $p$: 流程
+
 ]
 
 #show: mainmatter

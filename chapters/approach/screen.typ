@@ -9,7 +9,7 @@
 
 本节采用基于视觉的方法识别设计稿和实现界面中的控件。为获得高精度的控件检测能力，首先需构建大规模、高质量的训练数据集。
 
-数据集构建方法如下：由于每张界面截图通常包含数十至上百个控件，人工逐一标注成本极高。为此，采用自动化标注流程，利用 uiautomator 工具控制手机自动遍历应用所有界面节点，采集每个界面的截图及其对应的 UI 层次信息。UI 层次信息中包含了控件的类型、名称、位置等详细属性，可据此自动生成每个控件在界面截图上的标注框。
+数据集构建方法如下：由于每张界面截图通常包含数十至上百个控件，人工逐一标注成本极高。为此，采用自动化标注流程，利用 uiautomator2 @uiautomator2 工具控制手机自动遍历应用所有界面节点，采集每个界面的截图及其对应的 UI 层次信息。UI 层次信息中包含了控件的类型、名称、位置等详细属性，可据此自动生成每个控件在界面截图上的标注框。
 
 然而，原始 UI 层次信息中往往混杂着大量布局容器（如 `LinearLayout`）、透明遮罩及装饰性节点，这些元素通常不具备实际的交互或视觉语义。为此，本文设计了一种基于包含关系与类型分类的启发式过滤算法，旨在精准提取具象化的 UI 控件。
 具体而言，该算法首先对 UI 树进行深度优先遍历，分析节点间的父子包含关系，剔除那些由于嵌套而产生的冗余背景容器；其次，建立控件类型白名单，根据 Android View 的类名属性进行分类筛选，过滤掉单纯负责布局的结构化节点（如 `FrameLayout`、`RelativeLayout` 等），仅保留按钮（Button）、文本框（EditText）、图片（ImageView）等具有明确视觉特征和交互功能的实体控件。
@@ -91,15 +91,15 @@ $ M_(i,j) = max(M_(i-1,j)-g, M_(i,j-1)-g, M_(i-1,j-1) + A_(i,j)) $
   label-name: "widget-matching",
   caption: [控件对齐算法],
   pseudocode-list(line-gap: 1.6em, indentation: 2em)[
-    - #h(-1.5em) *input:* 设计稿控件集 $bf(W)_1 = {bf(w)_i | bf(w)_i = (x_i, y_i, w_i, h_i, t_i)}$，实现控件集 $bf(W)_2 = {bf(w)_j | bf(w)_j = (x_j, y_j, w_j, h_j, t_j)}$
-    - #h(-1.5em) *output:* 匹配对 $bf(W)_1^m, bf(W)_2^m$
-    + $bf(W)_1^m <- emptyset, bf(W)_2^m <- emptyset$
+    - #h(-1.5em) *input:* 设计稿控件集 $widgetset_1 = {widgetset_i | widgetset_i = (x_i, y_i, w_i, h_i, t_i)}$，实现控件集 $widgetset_2 = {widgetset_j | widgetset_j = (x_j, y_j, w_j, h_j, t_j)}$
+    - #h(-1.5em) *output:* 匹配对 $widgetset_1^m, widgetset_2^m$
+    + $widgetset_1^m <- emptyset, widgetset_2^m <- emptyset$
     + /* 步骤 1: 基于递归投影切割的控件线性化 */
-    + $bf(W)_1 <- cal(L)(bf(W)_1)$
-    + $bf(W)_2 <- cal(L)(bf(W)_2)$
+    + $widgetset_1 <- cal(L)(widgetset_1)$
+    + $widgetset_2 <- cal(L)(widgetset_2)$
     + /* 步骤 2: 计算相似度矩阵 */
-    + 初始化相似度矩阵 $A <- bf(0)_(|bf(W)_1| times |bf(W)_2|)$
-    + *for* $bf(w)_i in bf(W)_1, bf(w)_j in bf(W)_2$ *do*
+    + 初始化相似度矩阵 $A <- bf(0)_(|widgetset_1| times |widgetset_2|)$
+    + *for* $widgetset_i in widgetset_1, widgetset_j in widgetset_2$ *do*
       + $s i m_(p o s) = min(1 / (alpha(|x_i - x_j| + |y_i - y_j|) + |w_i - w_j| + |h_i - h_j|), 1)$
       + $s i m_(a r e a) = min(w_i h_i, w_j h_j) / max(w_i h_i, w_j h_j)$
       + $s i m_(s h a p e) = min(w_i \/ h_i, w_j \/ h_j) / max(w_i \/ h_i, w_j \/ h_j)$
@@ -107,16 +107,16 @@ $ M_(i,j) = max(M_(i-1,j)-g, M_(i,j-1)-g, M_(i-1,j-1) + A_(i,j)) $
       + $A_(i,j) <- s i m_(p o s) dot s i m_(a r e a) dot s i m_(s h a p e) dot s i m_(t y p e)$
     + *end*
     + /* 步骤 3: 基于 LCS 的匹配 */
-    + 初始化匹配矩阵 $M <- bf(0)_(|bf(W)_1|+1 times |bf(W)_2|+1)$
-    + *for* $i = 1,dots,|bf(W)_1|, j = 1,dots,|bf(W)_2|$ *do*
+    + 初始化匹配矩阵 $M <- bf(0)_(|widgetset_1|+1 times |widgetset_2|+1)$
+    + *for* $i = 1,dots,|widgetset_1|, j = 1,dots,|widgetset_2|$ *do*
       + $M_(i,j) <- max{M_(i,j-1), M_(i-1,j), M_(i-1,j-1) + A_(i-1,j-1)}$
     + *end*
     + /* 回溯匹配对 */
-    + $i <- |bf(W)_1|, j <- |bf(W)_2|$
+    + $i <- |widgetset_1|, j <- |widgetset_2|$
     + *while* $i > 0$ *and* $j > 0$ *do*
       + *if* $M_(i,j) = M_(i-1,j-1) + A_(i-1,j-1)$ *then*
-        + $bf(W)_1^m <- bf(W)_1^m union {bf(w)_(i-1)}$
-        + $bf(W)_2^m <- bf(W)_2^m union {bf(w)_(j-1)}$
+        + $widgetset_1^m <- widgetset_1^m union {widgetset_(i-1)}$
+        + $widgetset_2^m <- widgetset_2^m union {widgetset_(j-1)}$
         + $i <- i - 1, j <- j - 1$
       + *else* *if* $M_(i,j) = M_(i-1,j)$ *then*
         + $i <- i - 1$
@@ -124,7 +124,7 @@ $ M_(i,j) = max(M_(i-1,j)-g, M_(i,j-1)-g, M_(i-1,j-1) + A_(i,j)) $
         + $j <- j - 1$
       + *end*
     + *end*
-    + *return* $bf(W)_1^m, bf(W)_2^m$
+    + *return* $widgetset_1^m, widgetset_2^m$
   ],
 ) <alg:widget-matching>
 
@@ -139,8 +139,8 @@ $ M_(i,j) = max(M_(i-1,j)-g, M_(i,j-1)-g, M_(i-1,j-1) + A_(i,j)) $
 
 *第三类：语义变化（Semantic Variation）。* 这类控件虽然在两个界面版本中都存在并成功匹配，但在类型、内容或视觉表现上产生了变化。
 
-前两类不一致性的识别方法较为直接，即通过将匹配后的控件集合 $bf(W)_1^m$ 和 $bf(W)_2^m$（从设计稿和应用实现中分别获得）
-与初始检测到的完整控件集合 $bf(W)_1$ 和 $bf(W)_2$ 进行交集运算与差集分析。未在匹配集合中出现的控件，则分别归类为多余或缺失。
+前两类不一致性的识别方法较为直接，即通过将匹配后的控件集合 $widgetset_1^m$ 和 $widgetset_2^m$（从设计稿和应用实现中分别获得）
+与初始检测到的完整控件集合 $widgetset_1$ 和 $widgetset_2$ 进行交集运算与差集分析。未在匹配集合中出现的控件，则分别归类为多余或缺失。
 
 对于第三类语义变化的判断，需在已经成功匹配的控件对上执行更深层的语义检验。判断规则如下：
 

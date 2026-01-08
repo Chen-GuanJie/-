@@ -12,12 +12,12 @@
   caption-en: [The process of buying stocks, taken from the design mock-up of an industrial trading application. The state transition is abstractly described as "Buy 100 shares".],
   label-name: "process-eg",
 )
-对于设计稿中的每一个状态转移（由源界面 $bf(screen)_src$、目标界面 $bf(screen)_tar$ 及其转移描 $d e s c$ 组成，见 @img:process-eg）
-，以及对应的应用中观测到的起始界面 $bf(screen)^*_src$，流程验证包含两个核心环节：
+对于设计稿中的每一个状态转移（由源界面 $screen_src$、目标界面 $screen_tar$ 及其转移描 $d e s c$ 组成，见 @img:process-eg）
+，以及对应的应用中观测到的起始界面 $screen^*_src$，流程验证包含两个核心环节：
 
-1) 将抽象转移描述映射为可执行动作序列。该映射首先对 $bf(screen)_src$ 与 $d e s c$ 进行语义解析，生成若干候选动作序列（action candidates）。解析过程中结合自然语言提示、界面上可交互控件的检测结果以及上下文约束，利用视觉-语言模型（VLM）对歧义进行消解并输出格式化的动作序列。为提高可靠性，系统对候选序列进行排序与打分，打分项包括与界面元素的匹配置信度、动作的可执行性估计和历史回放成功率。
+1) 将抽象转移描述映射为可执行动作序列。该映射首先对 $screen_src$ 与 $d e s c$ 进行语义解析，生成若干候选动作序列（action candidates）。解析过程中结合自然语言提示、界面上可交互控件的检测结果以及上下文约束，利用视觉-语言模型（VLM）对歧义进行消解并输出格式化的动作序列。为提高可靠性，系统对候选序列进行排序与打分，打分项包括与界面元素的匹配置信度、动作的可执行性估计和历史回放成功率。
 
-2) 在真实设备上回放并验证。选定高置信度的动作序列后，使用自动化执行工具（如 uiautomator @uiautomator2）在应用上逐步回放这些动作，并在每一步采集屏幕截图、UI 层次信息与执行日志。若动作导致界面跳转，则对跳转后的界面与设计稿中的目标界面 $bf(screen)_tar$ 进行相似度比较，见@eq:screen-similarity。相似度不足以判定一致时，将触发补偿策略：
+2) 在真实设备上回放并验证。选定高置信度的动作序列后，使用自动化执行工具（如 uiautomator2 @uiautomator2）在应用上逐步回放这些动作，并在每一步采集屏幕截图、UI 层次信息与执行日志。若动作导致界面跳转，则对跳转后的界面与设计稿中的目标界面 $screen_tar$ 进行相似度比较，见@eq:screen-similarity。相似度不足以判定一致时，将触发补偿策略：
 
 - 候选回放重试：尝试该动作序列的同类替代（例如对相同语义但不同控件 ID 的候选进行替换）；
 - 回溯与替代选择：若局部动作失败导致后续步骤不可达，则回溯至最近的稳定状态并尝试下一个高置信度候选序列；
@@ -143,24 +143,27 @@
 该度量不仅能反映匹配对的总体质量，还天然对目标界面中控件的覆盖程度给出惩罚（即未匹配的目标控件会降低归一化后的得分）。在实际应用中，可根据任务需求设定识别阈值：较高阈值用于严格一致性检验（关注像素级与语义级一致），较低阈值用于容忍实现细微差异的近似匹配场景。若得分低于设定阈值，系统将标记为界面不一致并记录相应的匹配证据与差异项，便于后续定位与修复。
 
 $
-  "sim"(bf(screen), bf(screen)^tar) = (sum_(bf(widget)_i in bf(widgetset), bf(widget)_j in bf(widgetset)^tar) A_(i,j) dot bf(1)(bf(widget)_i in bf(widgetset), bf(widget)_j in bf(widgetset)^tar "匹配")) / (|bf(widgetset)^tar|)
+  "sim"(screen, screen^tar) = (sum_(widget_i in widgetset, widget_j in widgetset^tar) A_(i,j) dot bf(1)(widget_i in widgetset, widget_j in widgetset^tar "匹配")) / (|widgetset^tar|)
 $ <eq:screen-similarity>
 
 === 不一致性报告生成 <app:process-inconsistency-report>
 
-系统基于形式化定义对流程一致性进行自动化判定与报告生成。记设计稿中的期望流程为 $bf(process)^tar = (bf(screenset)^tar, bf(actionchainset)^tar)$，而在实现端实际执行得到的流程为 $bf(process) = (bf(screenset), bf(actionchainset)^tar_(c o m p l e t e))$。流程不一致的判定准则是：存在某一时间步 $t$，使得执行界面 $bf(screen)_t$ 与原型对应界面 $bf(screen)^tar_t$ 的相似度低于阈值 $epsilon_(s c r e e n)$，即满足：
+系统基于形式化定义对流程一致性进行自动化判定与报告生成。记设计稿中的期望流程为 $process^tar = (screenset^tar, actionchainset^tar)$，而在实现端实际执行得到的流程为 $process = (screenset, actionchainset^tar_(c o m p l e t e))$。流程不一致的判定准则是：存在某一时间步 $t$，使得执行界面 $screen_t$ 与原型对应界面 $screen^tar_t$ 的相似度低于阈值 $epsilon_(s c r e e n)$，即满足：
 
-$exists screen_t in screenset; screen^tar_t in screenset^tar; s i m(bf(screen)_t, bf(screen)^tar_t) < epsilon_(s c r e e n)$
+//居中下面的公式：
+$
+  exists screen_t in screenset; screen^tar_t in screenset^tar; s i m(screen_t, screen^tar_t) < epsilon_(s c r e e n)
+$
 
-针对上述判定出的流程差异以及 @sec:ps 中定义的其他细粒度不一致性，系统将自动生成一份包含完整证据链的结构化审计报告。报告以条目化形式详述每一项违规，涵盖唯一标识符（ID）、时间戳、违规类型、多媒体证据（如对比截图与差异标注）、执行轨迹（动作序列与 UI 树）、相似度评分及根因分析建议。具体的报告内容包括：
+针对上述判定出的流程差异以及@sec:ps 中定义的其他细粒度不一致性，系统将自动生成一份包含完整证据链的结构化审计报告。报告以条目化形式详述每一项违规，涵盖唯一标识符（ID）、时间戳、违规类型、多媒体证据（如对比截图与差异标注）、执行轨迹（动作序列与 UI 树）、相似度评分及根因分析建议。具体的报告内容包括：
 
-- 缺失控件（Missing widget）：列出设计稿中被识别但在实现中未匹配到的控件信息（例如 $bf(widget)^(tar)_i$），并附带该控件在设计稿中的截图、预期位置与类型说明，以及在实现端未检测到或检测失败的证据（若存在则包含候选相似控件与其相似度评分）。
+- 缺失控件（Missing widget）：列出设计稿中被识别但在实现中未匹配到的控件信息（例如 $widget^(tar)_i$），并附带该控件在设计稿中的截图、预期位置与类型说明，以及在实现端未检测到或检测失败的证据（若存在则包含候选相似控件与其相似度评分）。
 
 - 多余控件（Extraneous widget）：在实现界面的截图上高亮显示未在设计稿中出现的控件，提供其边界框、类型猜测与在实现中出现位置的上下文截图，供开发者复核是否为允许的实现扩展或误加的元素。
 
 - 语义变化（Semantic variation）：对已匹配的控件对，列出发生变化的属性（如类型变更、文案修改、图像/图标替换、颜色与样式变化等），并给出各类属性的定量差异（例如文本相似度得分、颜色直方图距离、IoU 或尺寸比差异），以便评估变更的严重程度。
 
-- 流程不一致（Process-level inconsistency）：对未能按预期完成的状态转移，报告实现图中缺失或不匹配的边（例如 $(bf(screen)_t, bf(action)_t, bf(screen)_(t+1)$），并附带导致失败的步骤序列、回放日志与最终界面差异摘要。
+- 流程不一致（Process-level inconsistency）：对未能按预期完成的状态转移，报告实现图中缺失或不匹配的边（例如 $(screen_t, action_t, screen_(t+1)$），并附带导致失败的步骤序列、回放日志与最终界面差异摘要。
 
 此外，报告将对每一项违规给出：
 
