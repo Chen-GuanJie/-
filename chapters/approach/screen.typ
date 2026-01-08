@@ -42,7 +42,7 @@ $
     cal(L)(g_1) plus cal(L)(g_2) plus dots plus cal(L)(g_k) & "其他"
   )
 $
-其中 $plus$ 表示序列连接操作。该算法来源于 `relative_loc` 布局分析模块，能有效保持视觉上相邻或包含的组件在逻辑序列中的邻接性。
+其中 $plus$ 表示序列连接操作。该算法能有效保持视觉上相邻或包含的组件在逻辑序列中的邻接性。
 // todo画个图
 
 - *步骤 2：组件相似度计算（@algo:widget-matching 的第 4--7 行）。*
@@ -90,7 +90,7 @@ $ M_(i,j) = max(M_(i-1,j)-g, M_(i,j-1)-g, M_(i-1,j-1) + A_(i,j)) $
 #algox(
   label-name: "widget-matching",
   caption: [组件对齐算法],
-  pseudocode-list(line-gap: 1em, indentation: 2em)[
+  pseudocode-list(line-gap: 1.6em, indentation: 2em)[
     - #h(-1.5em) *input:* 设计稿组件集 $bf(W)_1 = {bf(w)_i | bf(w)_i = (x_i, y_i, w_i, h_i, t_i)}$，实现组件集 $bf(W)_2 = {bf(w)_j | bf(w)_j = (x_j, y_j, w_j, h_j, t_j)}$
     - #h(-1.5em) *output:* 匹配对 $bf(W)_1^m, bf(W)_2^m$
     + $bf(W)_1^m <- emptyset, bf(W)_2^m <- emptyset$

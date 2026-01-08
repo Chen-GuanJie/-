@@ -16,27 +16,27 @@
   ),
 
   [TextButton #h(0.5em)
-    #box(image("../../figures/widgets/textbutton/6.pdf", height: 0.5cm)) #h(0.5em)
-    #box(image("../../figures/widgets/textbutton/7.pdf", height: 0.5cm))],
+    #box(image("../../figures/widgets/textbutton/6.pdf", height: 0.7cm)) #h(0.5em)
+    #box(image("../../figures/widgets/textbutton/7.pdf", height: 0.7cm))],
   [TextView #h(0.5em)
-    #box(image("../../figures/widgets/textview/5.pdf", height: 0.5cm)) #h(0.5em)
-    #box(image("../../figures/widgets/textview/12.pdf", height: 0.5cm))],
+    #box(image("../../figures/widgets/textview/5.pdf", height: 0.7cm)) #h(0.5em)
+    #box(image("../../figures/widgets/textview/12.pdf", height: 0.7cm))],
 
   [IconButton #h(0.5em)
-    #box(image("../../figures/widgets/iconbutton/2.pdf", height: 0.5cm)) #h(0.2em)
-    #box(image("../../figures/widgets/iconbutton/4.pdf", height: 0.5cm)) #h(0.2em)
-    #box(image("../../figures/widgets/iconbutton/9.pdf", height: 0.5cm)) #h(0.5em)
-    #box(image("../../figures/widgets/switch/1.pdf", height: 0.5cm))],
+    #box(image("../../figures/widgets/iconbutton/2.pdf", height: 0.7cm)) #h(0.2em)
+    #box(image("../../figures/widgets/iconbutton/4.pdf", height: 0.7cm)) #h(0.2em)
+    #box(image("../../figures/widgets/iconbutton/9.pdf", height: 0.7cm)) #h(0.5em)
+    #box(image("../../figures/widgets/switch/1.pdf", height: 0.7cm))],
   [ImageView #h(0.5em)
-    #box(image("../../figures/widgets/imageview/6.pdf", height: 0.5cm)) #h(0.2em)
-    #box(image("../../figures/widgets/imageview/20.pdf", height: 0.5cm)) #h(0.2em)
-    #box(image("../../figures/widgets/imageview/18.pdf", height: 0.5cm))],
+    #box(image("../../figures/widgets/imageview/6.pdf", height: 0.7cm)) #h(0.2em)
+    #box(image("../../figures/widgets/imageview/20.pdf", height: 0.7cm)) #h(0.2em)
+    #box(image("../../figures/widgets/imageview/18.pdf", height: 0.7cm))],
 
   [CombinedButton #h(0.5em)
     #box(image("../../figures/widgets/combinedbutton/1.pdf", height: 1.5cm)) #h(0.5em)
     #box(image("../../figures/widgets/combinedbutton/2.pdf", height: 1.5cm))],
   [Chart #h(0.5em)
-    #box(image("../../figures/widgets/chart/9.pdf", height: 1.5cm))],
+    #box(image("../../figures/widgets/chart/9.pdf", height: 1.75cm))],
 
   table.cell(colspan: 2)[InputBox #h(0.5em)
     #box(image("../../figures/widgets/input/3.pdf", width: 50%))],
