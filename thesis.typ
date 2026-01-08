@@ -114,7 +114,6 @@
 
 #include "chapters/approach/main.typ"
 #include "chapters/experiment/main.typ"
-#include "chapters/case_study.typ"
 
 #include "chapters/conclusion/main.typ"
 
