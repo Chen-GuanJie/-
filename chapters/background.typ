@@ -1,4 +1,17 @@
 = 背景介绍 <chp:background>
+== 图形用户界面GUI
+图形用户界面（Graphical User Interface, GUI）是现代人机交互（HCI）的核心媒介，它通过图形化的视觉元素（如窗口、图标、菜单）取代了早期的命令行界面，使用户能够以更加直观、自然的方式与计算系统进行双向信息交换。自20世纪80年代施乐帕罗奥多研究中心（Xerox PARC）开创性地提出WIMP（Windows, Icons, Menus, Pointer）范式以来，GUI已逐渐演变为桌面及移动操作系统的主流交互标准@ux-design。
+
+在移动应用开发中，GUI通常基于组件化（Component-based）的思想构建，其基本构成单元被称为*控件*（Widget）或视图（View）。控件是具有特定视觉表现和交互行为的可以在屏幕上绘制的对象，例如用于触发操作的按钮（Button）、用于接收用户输入的文本框（EditText）、用于展示信息的图像视图（ImageView）等。每一个控件都封装了一组属性（Properties），包括但不限于位置坐标、尺寸大小、背景颜色、文本内容以及可见性状态等。
+
+从结构视角来看，移动端GUI并非孤立控件的简单堆砌，而是呈现出严谨的树状层级结构，被称为视图树（View Tree）或UI层级（UI Hierarchy）。在该结构中，根节点通常是一个容器控件（如Android中的ViewGroup），负责管理其子节点的布局排列（Layout）；叶节点则是具体的交互元素。这种层级化的组织方式不仅决定了界面的渲染顺序，也定义了触摸事件的分发路径与响应逻辑。随着移动设备形态的日益丰富，适应不同屏幕尺寸与分辨率的响应式布局（Responsive Layout）已成为GUI设计的基本要求@grandview2024mobile @su2022metamorphosis。现代移动端GUI设计正朝着更加动态化、个性化及智能化的方向演进@apple2024accessibility @google2024accessibility @yu2021layout。
+/*
+Shneiderman, B. (2020). Human-Centered Artificial Intelligence: Three Fresh Ideas. AIS Transactions on Human-Computer Interaction, 12(3), 109-124. https://doi.org/10.17705/1thci.00131
+DOI: 10.17705/1thci.00131
+
+
+*/
+
 == GUI测试
 移动端图形用户界面（GUI）测试一直是软件工程研究的核心领域之一。随着移动应用生态系统的快速发展，GUI测试的重要性日益凸显。现有研究工作主要围绕以下几个关键方向展开：提升测试效率与代码覆盖率@ahmed2023vialin @alshayban2022accesstext @bose2023columbus @feng2023efficiency @huang2021characterizing @vajjala2024motorease @lan2024deeply @ma2023automata @mahmud2024gui @qian2022accelerating @ran2023badge @su2022metamorphosis @sun2023property @wang2022detecting @yu2024practical，自动化测试用例生成@mariani2021semantic @mirzaei2016reducing @saddler2017eventflowslicer @song2017ehbdroid @talebipour2021ui @zhang2024learning @zhao2022avgust，缺陷重放与报告@liu2022nighthawk @rawles2024androidworld，以及代码修复@alotaibi2021automated @cao2024comprehensive @huang2023conffix @yang2023compatibility @zhang2023automated @zhao2022towards。
 
