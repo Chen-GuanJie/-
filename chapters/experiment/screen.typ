@@ -1,9 +1,9 @@
-#import  "../../define.typ":*
+#import "../../define.typ": *
 == 屏幕一致性检测实验 <exp:rq1>
 
 === 实验设置
 
-本实验对模拟的设计稿屏幕进行变异，以注入屏幕不一致性。具体包括以下常见的 GUI 变异类型，覆盖了 92% 的实际变异案例 @moran2018automated。假设大部分控件实现正确，每个变异案例中随机选择屏幕上 5% 的控件进行修改，平均每屏修改 1-2 个控件，设置与 @moran2018automated 保持一致。
+本实验对模拟的设计原型屏幕进行变异，以注入屏幕不一致性。具体包括以下常见的 GUI 变异类型，覆盖了 92% 的实际变异案例 @moran2018automated。假设大部分控件实现正确，每个变异案例中随机选择屏幕上 5% 的控件进行修改，平均每屏修改 1-2 个控件，设置与 @moran2018automated 保持一致。
 
 - *缺失控件（Missing widgets）：* 每个屏幕随机选择 5% 的控件进行删除。为模拟真实渲染效果，删除包含所选控件的整行，并将剩余控件向上移动。
 - *多余控件（Extra widgets）：* 每个屏幕随机插入约 5% 的额外控件。为这些控件添加完整的行，并将现有控件相应向下移动。
@@ -112,13 +112,14 @@ GVT 更容易受到位置偏移的影响。GVT 主要依赖控件的相对位置
 
 #figure(
   grid(
-    columns: 3,
+    columns: 2,
     gutter: 0.5em,
-    image("../../figures/guipilot_fp/2.pdf"), image("../../figures/guipilot_fp/5.pdf"), image("../../figures/guipilot_fp/9.pdf"),
-    align(center)[FP 示例 1], align(center)[FP 示例 2], align(center)[FP 示例 3],
-
-    image("../../figures/guipilot_fn/3.pdf"), [], [],
-    align(center)[FN 示例 1], [], [],
+    image("../../figures/guipilot_fp/2.pdf"), image("../../figures/guipilot_fp/5.pdf"),
+    align(center)[FP 示例 1], align(center)[FP 示例 2],
+    image("../../figures/guipilot_fp/9.pdf"), image("../../figures/guipilot_fn/3.pdf"),
+    [], [],
+    align(center)[FP 示例 3], align(center)[FN 示例 1],
+    [], [],
   ),
   caption: [#(tool) 的假阳性 (FP) 和假阴性 (FN) 示例。],
 ) <fig:gui-fail>

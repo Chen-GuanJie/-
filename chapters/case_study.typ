@@ -44,4 +44,4 @@ $"设计稿规范建议"$
 $"效度威胁"$
 (i) 内部效度：我们的工具依赖于第三方 OpenAI 服务来完成动作，因此网络延迟和稳定性可能会影响性能。未来的改进是蒸馏一个本地的大型视觉-语言模型来缓解这些问题。
 (2) 外部效度：
-在模拟研究中，由于无法获得实际的设计稿，我们使用真实的移动屏幕截图来模拟设计稿。只要满足以下条件，我们的工具就可以推广到其他应用程序：(i) 它们的设计稿通过了 @app:meta-model and (ii) each screen transition includes a description $"desc"$ (@app:process). Any shortcomings can be manually corrected.
+在模拟研究中，由于无法获得实际的设计稿，我们使用真实的移动屏幕截图来模拟设计稿。只要满足以下条件，我们的工具就可以推广到其他应用程序：(i) 它们的设计稿通过了 @app:meta-model and (ii) each screen transition includes a description $d e s c$ (@app:process). Any shortcomings can be manually corrected.

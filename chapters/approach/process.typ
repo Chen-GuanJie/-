@@ -12,10 +12,10 @@
   caption-en: [The process of buying stocks, taken from the design mock-up of an industrial trading application. The state transition is abstractly described as "Buy 100 shares".],
   label-name: "process-eg",
 )
-对于设计稿中的每一个状态转移（由源界面 $bf(screen)_src$、目标界面 $bf(screen)_tar$ 及其转移描述 $"desc"$ 组成，见 @img:process-eg）
+对于设计稿中的每一个状态转移（由源界面 $bf(screen)_src$、目标界面 $bf(screen)_tar$ 及其转移描 $d e s c$ 组成，见 @img:process-eg）
 ，以及对应的应用中观测到的起始界面 $bf(screen)^*_src$，流程验证包含两个核心环节：
 
-1) 将抽象转移描述映射为可执行动作序列。该映射首先对 $bf(screen)_src$ 与 desc 进行语义解析，生成若干候选动作序列（action candidates）。解析过程中结合自然语言提示、界面上可交互控件的检测结果以及上下文约束，利用视觉-语言模型（VLM）对歧义进行消解并输出格式化的动作序列。为提高可靠性，系统对候选序列进行排序与打分，打分项包括与界面元素的匹配置信度、动作的可执行性估计和历史回放成功率。
+1) 将抽象转移描述映射为可执行动作序列。该映射首先对 $bf(screen)_src$ 与 $d e s c$ 进行语义解析，生成若干候选动作序列（action candidates）。解析过程中结合自然语言提示、界面上可交互控件的检测结果以及上下文约束，利用视觉-语言模型（VLM）对歧义进行消解并输出格式化的动作序列。为提高可靠性，系统对候选序列进行排序与打分，打分项包括与界面元素的匹配置信度、动作的可执行性估计和历史回放成功率。
 
 2) 在真实设备上回放并验证。选定高置信度的动作序列后，使用自动化执行工具（如 uiautomator @uiautomator2）在应用上逐步回放这些动作，并在每一步采集屏幕截图、UI 层次信息与执行日志。若动作导致界面跳转，则对跳转后的界面与设计稿中的目标界面 $bf(screen)_tar$ 进行相似度比较，见@eq:screen-similarity。相似度不足以判定一致时，将触发补偿策略：
 
