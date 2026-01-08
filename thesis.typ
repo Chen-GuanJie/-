@@ -100,12 +100,9 @@
   / $widget$: 控件
   / $action$: 操作
   / $process$: 流程
-  / $s r c$: 源屏幕
-  / $t a r$: 目标屏幕
   / $action$: 操作
   / $actionchain$: 操作链
   / $actionchainset$: 操作链集合
-  / $p$: 流程
 
 ]
 
