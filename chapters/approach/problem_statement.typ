@@ -45,7 +45,7 @@
 
 *屏幕（Screen）。* 屏幕 $bf(s)$ 被形式化定义为单个 GUI 界面，其包含若干视觉控件，如图像、按钮、文本等。每个控件 $bf(w)$ 以 $chevron.l x, y, w, h, t chevron.r$ 的五元组格式表示。其中，$x, y$ 代表控件在以截图左上角为原点的坐标系中的左上角坐标；$w, h$ 分别表示控件相对于完整截图尺寸的归一化宽度和高度；$t$ 标识该控件的类型。本研究定义了 7 种主要的控件类型，具体的视觉示例详见 @tbl:widget-class。一个屏幕可表示为一组控件的集合，即 $bf(W) = {bf(w)_i | bf(w)_i = chevron.l x, y, w, h, t chevron.r}$。
 
-如 @tbl:widget-class 所示，依据可交互性将控件分为两类：(1) 可交互控件，包括文本按钮（TextButton）、图标按钮（IconButton）、组合按钮（CombinedButton）和输入框（InputBox）。文本按钮通过文字传达功能，图标按钮依赖图形符号，组合按钮整合了图文信息以提供更丰富的语义，输入框则支持文本输入交互；(2) 不可交互控件，涵盖文本视图（TextView）、图像视图（ImageView）和图表（Chart），主要用于静态信息的展示。
+如@tbl:widget-class 所示，依据可交互性将控件分为两类：(1) 可交互控件，包括文本按钮（TextButton）、图标按钮（IconButton）、组合按钮（CombinedButton）和输入框（InputBox）。文本按钮通过文字传达功能，图标按钮依赖图形符号，组合按钮整合了图文信息以提供更丰富的语义，输入框则支持文本输入交互；(2) 不可交互控件，涵盖文本视图（TextView）、图像视图（ImageView）和图表（Chart），主要用于静态信息的展示。
 
 *操作（Action）。* 在单个屏幕 $bf(s)$ 上，用户可执行一系列交互操作，每个操作均针对特定的控件。本研究定义的操作空间包含 7 种原子动作：点击（Click）、长按（Long Press）、输入文本（Input Text）、滚动（Scroll）、滑动（Swipe）、拖放（Drag & Drop）和返回（Back）。操作链 $bf(A)$ 定义为按时序排列的一系列操作序列 $bf(A) = (bf(a)_1(bf(w)_1), bf(a)_2(bf(w)_2), ..., bf(a)_i(bf(w)_i))$。以 @img:mockup-example 为例，完成从屏幕 4 跳转到屏幕 5 的任务，其对应的操作链为 $bf(A)$ = (点击(密码输入框), 输入文本(用户密码), 点击(协议复选框), 点击(安装按钮))。
 

@@ -69,7 +69,7 @@
     + *go_back*(): 这将返回到上一个屏幕。
   ],
 
-  [*少样本示例*],
+  [*样本示例*],
   [
     例如，如果我们当前的 GUI 屏幕有两个控件：
 
@@ -86,7 +86,7 @@
 
   table.cell(colspan: 2)[*用户提示（可修改）*],
 
-  image("../../figures/gui_screen_annotated.pdf", width: 100%),
+  image("../../figures/gui_screen_annotated.pdf", width: 160%),
   [
     给定当前屏幕和描述，
     请提供下一个立即执行的正确操作。
