@@ -228,31 +228,6 @@ Typst 使用 Hayagriva 管理参考文献，有部分细节问题还在逐步修
 
 本模板使用 `imagex` 函数对图片环境进行封装，在实现子图，双语图题等复杂功能的同时，仍保留较高的自定义程度，将通过下面的示例进行说明。图片的引用须以 `img` 开头。
 
-=== 单个图形
-
-图要有图题，研究生图题采用中英文对照，并置于图的编号之后，图的编号和图题应置于图下方的居中位置。文中必须有关于本插图的提示，如“见@img:image”、“如@img:image”等。该页空白不够排写该图整体时，则可将其后文字部分提前排写，将图移到次页。
-
-#imagex(
-  image(
-    "latex/figures/f1_threshold.pdf",
-    width: 80%,
-  ),
-  caption: [内热源沿径向的分布],
-  caption-en: [Energy distribution along radial],
-  label-name: "image",
-)
-
-本科生图题只需要中文图题，删去 `caption-en` 即可。
-
-#imagex(
-  image(
-    "latex/figures/widget-detection.pdf",
-    width: 80%,
-  ),
-  caption: [内热源沿径向的分布],
-  label-name: "image2",
-)
-
 
 == 表格
 

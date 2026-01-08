@@ -151,7 +151,7 @@ $ <eq:metrics>
   table.hline(),
   caption: [屏幕一致性实验结果对比],
   label-name: "screen-inconsistency-results",
-),
+)
 
 #imagex(
   subimagex(image("../../figures/gvt_fails_guipilot_success/1_gvt.pdf"), caption: [GVT (示例 1)]),

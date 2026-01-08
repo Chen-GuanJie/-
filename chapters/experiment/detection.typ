@@ -64,6 +64,6 @@
 
 #imagex(
   image("../../figures/mAP_Latency.pdf", width: 80%),
-  caption: [目标检测模型架构的性能权衡对比。纵轴代表平均精度均值（mAP），横轴为处理单帧图像的推理延迟（Latency）。气泡大小正比于模型的参数量（FLOPs）。],
+  caption: [目标检测模型性能对比。纵轴代表平均精度均值（mAP），横轴为处理单帧图像的推理延迟（Latency）。气泡大小正比于模型的参数量（FLOPs）。],
   label-name: "object-detection-architect",
 )
