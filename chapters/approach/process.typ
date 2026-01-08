@@ -48,18 +48,21 @@
 - 后处理端：对模型输出进行结构化解析，验证所引用的控件 ID 与参数的有效性，并计算综合置信度（结合模型得分、控件匹配置信度与语义一致性）。当置信度低于阈值时，触发候选重试、格式化重询或人工复核流程。
 
 #tablex(
-  columns: (2cm, 1fr),
+  columns: (1fr, 4fr),
   align: (left + top, left + top),
-  caption: [动作补全流程不一致检测的视觉提示],
+  caption: [视觉提示示例：带动作补全的流程不一致性检查。蓝色部分为可变内容，依据当前屏幕内容动态生成。],
   caption-en: [Visual prompt for process inconsistency checking with action completion. The components in blue are mutable and vary according to the current screen content.],
   label-name: "vlm-prompt",
 
   table.cell(colspan: 2)[*系统提示（不可覆盖）*],
+  table.hline(start: 0, end: 2, stroke: 0.25pt),
 
-  [*任务目标*],
+  [#box(fill: red.lighten(80%), inset: 5pt, radius: 4pt)[*任务目标*]],
+  table.vline(start: 0, end: 5, stroke: 0.25pt),
   [给定当前的 GUI 屏幕，你需要返回一系列操作以跳转到下一个屏幕。],
+  table.hline(start: 0, end: 2, stroke: 0.25pt),
 
-  [*输入/输出描述*],
+  [#box(fill: purple.lighten(80%), inset: 5pt, radius: 4pt)[*输入/输出描述*]],
   [
     输入是带有控件边界框标注（可操作控件）的*当前 GUI 屏幕截图*。
 
@@ -73,43 +76,36 @@
     + *drag_and_drop*(`widget_id1`, `widget_id2`): 将 `widget_1` 拖动到 `widget_2` 的中心。
     + *go_back*(): 这将返回到上一个屏幕。
   ],
+  table.hline(start: 0, end: 2, stroke: 0.25pt),
 
-  [*样本示例*],
+  [#box(fill: green.lighten(80%), inset: 5pt, radius: 4pt)[*样本示例*]],
   [
     例如，如果我们当前的 GUI 屏幕有两个控件：
-
     `widget_1` 是一个文本为“confirm”的按钮，`widget_2` 是一个占位符文本为“please input the password”的输入框。
-
-    在我针对当前 GUI 屏幕执行 *click*(`widget_1`) 操作后，
-    屏幕没有变化，这表明 `widget_2` 未填写。
-
-    因此，修正后的操作链应为
+    在我当前屏幕执行 *click*(`widget_1`) 操作后，
+    屏幕没有变化，表明 `widget_2` 未填写。
+    因此修正后操作链为
     *click*(`widget_2`),
     *send_keys*("my_password"),
     *click*(`widget_1`).
   ],
+  table.hline(start: 0, end: 2, stroke: 0.25pt),
 
   table.cell(colspan: 2)[*用户提示（可修改）*],
 
-  image("../../figures/gui_screen_annotated.pdf", width: 160%),
+  image("../../figures/gui_screen_annotated.pdf", width: 110%),
   [
-    给定当前屏幕和描述，
-    请提供下一个立即执行的正确操作。
+    给定当前屏幕和描述，请提供下一个立即执行的正确操作。
 
-    *动作输入*
+    #box(fill: blue.lighten(80%), inset: 2pt, radius: 2pt)[*动作输入*] {自然语言的动作描述。例如：“买入100股并继续”}
 
-    {自然语言的动作描述。例如：“买入100股并继续”}
+     #box(fill: blue.lighten(80%), inset: 2pt, radius: 2pt)[*GUI 截图输入*] {左侧显示的当前 GUI 截图。}
 
-    *GUI 截图输入*
-
-    {左侧显示的当前 GUI 截图。}
-
-    *(可选) 反馈*
-
-    你之前的回答不正确，
+    #box(fill: blue.lighten(80%), inset: 2pt, radius: 2pt)[*(可选) 反馈*] 你之前的回答不正确，
     你确定引用了正确的控件吗，
     或者该动作是否存在于动作空间中？
   ],
+
   breakable: false,
   header: (),
 )

@@ -78,7 +78,7 @@ $
 $ <eq:process-change>
 #imagex(
   image(
-    "../../figures/introduction_example.pdf",
+    "../../figures/introduction_example.png",
     width: 95%,
   ),
   caption: [交易类移动应用登录流程的设计稿示例，包含五个屏幕和四个转换。],

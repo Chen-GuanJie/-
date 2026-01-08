@@ -57,16 +57,17 @@
 
 然而，分类别的详细分析揭示了模型在特定控件上的性能短板：
 - *输入框（InputBox）与 文本按钮（TextButton）的混淆*：InputBox 的检测精度相对较低（mAP 0.446），主要归因于其在静止状态下的视觉特征（通常仅为“边框+占位符文本”）与普通的 TextButton 或 CombinedButton 极其相似。这使得纯视觉模型在缺乏交互上下文的情况下难以进行准确区分。作为改进策略，未来可在检测流水线中引入基于代码层级的属性检查（如检查 View 属性是否包含 `editable`），作为纯视觉推断的补充。
+#imagex(
+    image("../../figures/mAP_Latency.pdf", width: 82%),
+    caption: [目标检测模型性能对比。纵轴代表平均精度均值（mAP），横轴为处理单帧图像的推理延迟（Latency）。气泡大小正比于模型的参数量（FLOPs）。],
+    caption-en: [
+      Comparison of object detection model performance. The vertical axis represents Mean Average Precision (mAP), while the horizontal axis indicates inference latency per frame. Bubble size is proportional to the model's parameter count (FLOPs).
+    ],
+    label-name: "object-detection-architect",
+  )
+
 - *图表（Chart）的边界模糊*：Chart 类的检测效果最差（mAP 0.317）。定性分析显示，这主要是因为图表这种复杂控件往往与背景融合紧密，缺乏明确的封闭轮廓，且内部的数据点、坐标轴极易被误检为独立的微小控件，从而干扰了对图表整体边界框的回归。
 
 
-#imagex(
-  image("../../figures/mAP_Latency.pdf", width: 82%),
-  caption: [目标检测模型性能对比。纵轴代表平均精度均值（mAP），横轴为处理单帧图像的推理延迟（Latency）。气泡大小正比于模型的参数量（FLOPs）。],
-  caption-en: [
-    Comparison of object detection model performance. The vertical axis represents Mean Average Precision (mAP), while the horizontal axis indicates inference latency per frame. Bubble size is proportional to the model's parameter count (FLOPs).
-  ],
-  label-name: "object-detection-architect",
-)
 为了进一步验证选型依据，@img:object-detection-architect 展示了不同模型架构在精度与延迟之间的权衡关系。YOLO-v8 middle 在保持实时推理速度的同时提供了最佳的精度表现，因此被选为本系统的核心检测引擎。
 
