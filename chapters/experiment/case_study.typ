@@ -26,6 +26,7 @@
   ),
   columns: (1fr, 1fr),
   caption: [#(tool) 在该交易应用上报告的真实屏幕不一致实例。每幅图左侧为设计稿，右侧为实现屏幕。红框表示额外或缺失的控件，黄框表示语义不一致。],
+  caption-en: [Real screen inconsistency examples reported by #(tool) on the trading application. The left side of each image shows the design mock-up, and the right side shows the implemented screen. Red boxes indicate extra or missing widgets, and yellow boxes indicate semantic inconsistencies.],
   label-name: "case-study-screen-inconsistency",
 )
 

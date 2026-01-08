@@ -179,6 +179,9 @@ GVT 的核心缺陷在于其高度依赖控件的绝对坐标或相对网格位�
   subimagex(image("../../figures/gvt_fails_guipilot_success/11_guipilot.pdf"), caption: [#(tool) (示例 6)]),
   columns: (1fr, 1fr, 1fr, 1fr),
   caption: [GVT 和 #(tool) 之间的比较。在每张图中，原始屏幕显示在左侧，变异屏幕（插入、删除或交换后）显示在右侧。红色框表示多余或缺失的控件。绿色框表示不受变异影响的控件。黄色框表示由于变异而移动但仍能识别匹配的控件。],
+  caption-en: [
+    Comparison between GVT and #(tool). In each image, the original screen is shown on the left, and the mutated screen (after insertion, deletion, or swapping) is shown on the right. Red boxes indicate extra or missing widgets. Green boxes indicate unaffected widgets. Yellow boxes indicate widgets that have moved due to mutation but are still correctly matched.
+  ],
   label-name: "gui-win",
 )
 
@@ -191,23 +194,24 @@ GVT 的核心缺陷在于其高度依赖控件的绝对坐标或相对网格位�
 
 #imagex(
   subimagex(
-    image("../../figures/guipilot_fp/2.pdf",    width:85%,),
+    image("../../figures/guipilot_fp/2.pdf", width: 80%),
     caption: [FP 示例 1],
   ),
   subimagex(
-    image("../../figures/guipilot_fp/5.pdf",    width:85%,),
+    image("../../figures/guipilot_fp/5.pdf", width: 80%),
     caption: [FP 示例 2],
   ),
   subimagex(
-    image("../../figures/guipilot_fp/9.pdf",    width:85%,),
+    image("../../figures/guipilot_fp/9.pdf", width: 80%),
     caption: [FP 示例 3],
   ),
   subimagex(
-    image("../../figures/guipilot_fn/3.pdf",    width:85%,),
+    image("../../figures/guipilot_fn/3.pdf", width: 80%),
     caption: [FN 示例 1],
   ),
   columns: (1fr, 1fr),
   caption: [#(tool) 的假阳性 (FP) 和假阴性 (FN) 示例。],
+  caption-en: [Examples of false positives (FP) and false negatives (FN) by #(tool).],
   label-name: "gui-fail",
 )
 *假阴性（False Negatives）分析：*
