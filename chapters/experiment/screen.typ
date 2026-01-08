@@ -1,3 +1,4 @@
+#import "@preview/modern-sjtu-thesis:0.5.1": *
 #import "../../define.typ": *
 == 屏幕一致性检测实验 <exp:rq1>
 
@@ -32,106 +33,184 @@ $ <eq:metrics>
 
 === 实验结果分析
 
-#figure(
-  table(
-    columns: (1.2fr, 1fr, 1fr, 1fr, 1.2fr, 1fr, 1fr),
-    align: (left, left, center, center, center, center, center),
-    stroke: none,
-    table.header([*变异类型*], [*方法*], [*精确率*], [*召回率*], [*分类精确率*], [*Jaccard*], [*耗时 (s)*]),
-    table.hline(),
-    [*多余控件*], [GVT], [0.793], [0.899], [1.000], [0.690], [0.001],
-    [], [VLM], [0.088], [0.137], [1.000], [0.056], [1.230],
-    [], [#(tool)], [*0.998*], [*0.986*], [1.000], [*0.982*], [0.001],
-    table.hline(stroke: 0.5pt + gray),
-    [*缺失控件*], [GVT], [0.912], [0.938], [1.000], [0.840], [0.001],
-    [], [VLM], [0.123], [0.154], [1.000], [0.073], [1.430],
-    [], [#(tool)], [*0.997*], [*0.984*], [1.000], [*0.978*], [0.001],
-    table.hline(stroke: 0.5pt + gray),
-    [*交换控件*], [GVT], [0.283], [0.430], [1.000], [0.200], [0.001],
-    [], [VLM], [0.045], [0.078], [0.910], [0.026], [1.530],
-    [], [#(tool)], [*0.987*], [*0.992*], [1.000], [*0.971*], [0.001],
-    table.hline(stroke: 0.5pt + gray),
-    [*文本变更*], [GVT], [0.998], [0.999], [0.981], [0.960], [0.001],
-    [], [VLM], [0.119], [0.248], [0.992], [0.086], [1.870],
-    [], [#(tool)], [0.996], [0.999], [0.981], [0.960], [0.001],
-    table.hline(stroke: 0.5pt + gray),
-    [*颜色变更*], [GVT], [1.000], [0.999], [1.000], [0.990], [0.001],
-    [], [VLM], [0.075], [0.177], [0.964], [0.052], [3.110],
-    [], [#(tool)], [1.000], [0.999], [1.000], [0.990], [0.001],
-    table.hline(),
-  ),
+#tablex(
+  columns: (1.2fr, 1fr, 1fr, 1fr, 1.2fr, 1fr, 1fr),
+  align: (left, left, center, center, center, center, center),
+  stroke: none,
+  table.header([*变异类型*], [*方法*], [*精确率*], [*召回率*], [*分类精确率*], [*Jaccard*], [*耗时 (s)*]),
+  table.hline(),
+  [*多余控件*],
+  [GVT],
+  [0.793],
+  [0.899],
+  [1.000],
+  [0.690],
+  [0.001],
+  [],
+  [VLM],
+  [0.088],
+  [0.137],
+  [1.000],
+  [0.056],
+  [1.230],
+  [],
+  [#(tool)],
+  [*0.998*],
+  [*0.986*],
+  [1.000],
+  [*0.982*],
+  [0.001],
+  table.hline(stroke: 0.5pt + gray),
+  [*缺失控件*],
+  [GVT],
+  [0.912],
+  [0.938],
+  [1.000],
+  [0.840],
+  [0.001],
+  [],
+  [VLM],
+  [0.123],
+  [0.154],
+  [1.000],
+  [0.073],
+  [1.430],
+  [],
+  [#(tool)],
+  [*0.997*],
+  [*0.984*],
+  [1.000],
+  [*0.978*],
+  [0.001],
+  table.hline(stroke: 0.5pt + gray),
+  [*交换控件*],
+  [GVT],
+  [0.283],
+  [0.430],
+  [1.000],
+  [0.200],
+  [0.001],
+  [],
+  [VLM],
+  [0.045],
+  [0.078],
+  [0.910],
+  [0.026],
+  [1.530],
+  [],
+  [#(tool)],
+  [*0.987*],
+  [*0.992*],
+  [1.000],
+  [*0.971*],
+  [0.001],
+  table.hline(stroke: 0.5pt + gray),
+  [*文本变更*],
+  [GVT],
+  [0.998],
+  [0.999],
+  [0.981],
+  [0.960],
+  [0.001],
+  [],
+  [VLM],
+  [0.119],
+  [0.248],
+  [0.992],
+  [0.086],
+  [1.870],
+  [],
+  [#(tool)],
+  [0.996],
+  [0.999],
+  [0.981],
+  [0.960],
+  [0.001],
+  table.hline(stroke: 0.5pt + gray),
+  [*颜色变更*],
+  [GVT],
+  [1.000],
+  [0.999],
+  [1.000],
+  [0.990],
+  [0.001],
+  [],
+  [VLM],
+  [0.075],
+  [0.177],
+  [0.964],
+  [0.052],
+  [3.110],
+  [],
+  [#(tool)],
+  [1.000],
+  [0.999],
+  [1.000],
+  [0.990],
+  [0.001],
+  table.hline(),
   caption: [屏幕一致性实验结果对比],
-) <tab:screen-inconsistency-results>
+  label-name: "screen-inconsistency-results",
+),
 
-#figure(
-  grid(
-    columns: 4,
-    gutter: 0.5em,
-    image("../../figures/gvt_fails_guipilot_success/1_gvt.pdf"),
-    image("../../figures/gvt_fails_guipilot_success/1_guipilot.pdf"),
-    image("../../figures/gvt_fails_guipilot_success/2_gvt.pdf"),
-    image("../../figures/gvt_fails_guipilot_success/2_guipilot.pdf"),
-
-    align(center)[GVT (示例 1)],
-    align(center)[#(tool) (示例 1)],
-    align(center)[GVT (示例 2)],
-    align(center)[#(tool) (示例 2)],
-
-    image("../../figures/gvt_fails_guipilot_success/5_gvt.pdf"),
-    image("../../figures/gvt_fails_guipilot_success/5_guipilot.pdf"),
-    image("../../figures/gvt_fails_guipilot_success/6_gvt.pdf"),
-    image("../../figures/gvt_fails_guipilot_success/6_guipilot.pdf"),
-
-    align(center)[GVT (示例 3)],
-    align(center)[#(tool) (示例 3)],
-    align(center)[GVT (示例 4)],
-    align(center)[#(tool) (示例 4)],
-
-    image("../../figures/gvt_fails_guipilot_success/9_gvt.pdf"),
-    image("../../figures/gvt_fails_guipilot_success/9_guipilot.pdf"),
-    image("../../figures/gvt_fails_guipilot_success/11_gvt.pdf"),
-    image("../../figures/gvt_fails_guipilot_success/11_guipilot.pdf"),
-
-    align(center)[GVT (示例 5)],
-    align(center)[#(tool) (示例 5)],
-    align(center)[GVT (示例 6)],
-    align(center)[#(tool) (示例 6)],
-  ),
+#imagex(
+  subimagex(image("../../figures/gvt_fails_guipilot_success/1_gvt.pdf"), caption: [GVT (示例 1)]),
+  subimagex(image("../../figures/gvt_fails_guipilot_success/1_guipilot.pdf"), caption: [#(tool) (示例 1)]),
+  subimagex(image("../../figures/gvt_fails_guipilot_success/2_gvt.pdf"), caption: [GVT (示例 2)]),
+  subimagex(image("../../figures/gvt_fails_guipilot_success/2_guipilot.pdf"), caption: [#(tool) (示例 2)]),
+  subimagex(image("../../figures/gvt_fails_guipilot_success/5_gvt.pdf"), caption: [GVT (示例 3)]),
+  subimagex(image("../../figures/gvt_fails_guipilot_success/5_guipilot.pdf"), caption: [#(tool) (示例 3)]),
+  subimagex(image("../../figures/gvt_fails_guipilot_success/6_gvt.pdf"), caption: [GVT (示例 4)]),
+  subimagex(image("../../figures/gvt_fails_guipilot_success/6_guipilot.pdf"), caption: [#(tool) (示例 4)]),
+  subimagex(image("../../figures/gvt_fails_guipilot_success/9_gvt.pdf"), caption: [GVT (示例 5)]),
+  subimagex(image("../../figures/gvt_fails_guipilot_success/9_guipilot.pdf"), caption: [#(tool) (示例 5)]),
+  subimagex(image("../../figures/gvt_fails_guipilot_success/11_gvt.pdf"), caption: [GVT (示例 6)]),
+  subimagex(image("../../figures/gvt_fails_guipilot_success/11_guipilot.pdf"), caption: [#(tool) (示例 6)]),
+  columns: (1fr, 1fr, 1fr, 1fr),
   caption: [GVT 和 #(tool) 之间的比较。在每张图中，原始屏幕显示在左侧，变异屏幕（插入、删除或交换后）显示在右侧。红色框表示多余或缺失的控件。绿色框表示不受变异影响的控件。黄色框表示由于变异而移动但仍能识别匹配的控件。],
-) <fig:gui-win>
-
-@tab:screen-inconsistency-results 详细展示了 #(tool) 与基准方法 GVT @moran2018automated 的对比数据。综合实验结果表明，#(tool) 在各类不一致性检测任务中均表现出色，尤其在处理涉及布局变动的复杂场景时拥有显著优势。具体而言，对于多余控件（Extra widgets）检测和控件交换（Swapped widgets）检测，#(tool) 展现了近乎完美的准确率（Jaccard 指数分别达到 0.982 与 0.971），大幅领先于 GVT。而在处理文本更改或颜色替换等不改变布局结构的局部属性变化时，#(tool) 的性能与 GVT 持平，维持了极高的检测水准。值得强调的是，#(tool) 获得性能提升的同时，并没有引入显著的额外计算开销，保证了检测的高效性。
+  label-name: "gui-win",
+)
+@tbl:screen-inconsistency-results 详细展示了 #(tool) 与基准方法 GVT @moran2018automated 的对比数据。综合实验结果表明，#(tool) 在各类不一致性检测任务中均表现出色，尤其在处理涉及布局变动的复杂场景时拥有显著优势。具体而言，对于多余控件（Extra widgets）检测和控件交换（Swapped widgets）检测，#(tool) 展现了近乎完美的准确率（Jaccard 指数分别达到 0.982 与 0.971），大幅领先于 GVT。而在处理文本更改或颜色替换等不改变布局结构的局部属性变化时，#(tool) 的性能与 GVT 持平，维持了极高的检测水准。值得强调的是，#(tool) 获得性能提升的同时，并没有引入显著的额外计算开销，保证了检测的高效性。
 
 相比之下，直接通过 Prompt 方式查询 VLM 的基准方法表现不佳，不仅运行耗时远高于专用工具，且在多数任务上的各项指标均极低。定性分析发现，VLM 在处理此类细粒度差异对比任务时存在严重的“幻觉”问题，经常臆造并不存在的差异（高假阳性），或者即便发现了差异也难以将其精确定位到具体的控件 ID 上（高定位错误率）。
 
 === 结果讨论与优势分析
 
 *对布局偏移的鲁棒性：*
-GVT 的核心缺陷在于其高度依赖控件的绝对坐标或相对网格位置进行匹配，这使其对界面布局的微小扰动极为敏感。在真实场景中，仅仅插入或删除一个控件往往会导致后续所有同列元素的级联移动（如 @fig:gui-win 所示）。这种整体性的坐标偏移会导致 GVT 的贪婪匹配算法失效，错误地将位移后的正确控件判定为不匹配，从而产生大量的连锁误报。相比之下，#(tool) 采用了基于最长公共子序列（LCS）的动态规划对齐算法，并融合了位置、形状和类型等多模态特征。这种设计使得 #(tool) 能够理解序列结构，在即使发生像素级坐标偏移的情况下，依然能够根据上下文关系找回正确的对应关系，从而精确区分“真正的缺失”与“合法的移动”。
+GVT 的核心缺陷在于其高度依赖控件的绝对坐标或相对网格位置进行匹配，这使其对界面布局的微小扰动极为敏感。在真实场景中，仅仅插入或删除一个控件往往会导致后续所有同列元素的级联移动（如 @img:gui-win 所示）。这种整体性的坐标偏移会导致 GVT 的贪婪匹配算法失效，错误地将位移后的正确控件判定为不匹配，从而产生大量的连锁误报。相比之下，#(tool) 采用了基于最长公共子序列（LCS）的动态规划对齐算法，并融合了位置、形状和类型等多模态特征。这种设计使得 #(tool) 能够理解序列结构，在即使发生像素级坐标偏移的情况下，依然能够根据上下文关系找回正确的对应关系，从而精确区分“真正的缺失”与“合法的移动”。
 
 *对语义交换的识别能力：*
-在控件交换（Swapped widgets）场景下，即两个控件位置互换或原位类型变更，GVT 由于设置了严格的类型匹配约束或过于简单的距离阈值，往往无法将变化后的控件与原位置的控件关联起来，导致其将一次“交换”错误地拆解为一次“缺失”和一次“多余”。而 #(tool) 通过综合权重的相似度度量矩阵，允许跨类型的弱匹配存在，能够敏锐地识别出控件虽发生了类型质变但依然存在逻辑对应关系，从而正确报告出“语义不一致”而非简单的增删，如 @fig:gui-win 中的示例 5 和 6 所示。
+在控件交换（Swapped widgets）场景下，即两个控件位置互换或原位类型变更，GVT 由于设置了严格的类型匹配约束或过于简单的距离阈值，往往无法将变化后的控件与原位置的控件关联起来，导致其将一次“交换”错误地拆解为一次“缺失”和一次“多余”。而 #(tool) 通过综合权重的相似度度量矩阵，允许跨类型的弱匹配存在，能够敏锐地识别出控件虽发生了类型质变但依然存在逻辑对应关系，从而正确报告出“语义不一致”而非简单的增删，如 @img:gui-win 中的示例 5 和 6 所示。
 
 === 错误案例深度分析
 
 尽管 #(tool) 表现出了较强的鲁棒性，但在部分极端场景下仍存在误判，主要集中在以下两类情况：
 
 *假阳性（False Positives）分析：*
-当界面发生剧烈的布局重构，且插入的新控件与原有相邻控件在视觉特征（如形状、类型）上极度相似时，#(tool) 的匹配算法可能会发生“错位匹配”。例如，插入的一个标准按钮可能被误认为是原有按钮的位移，导致真正的原有按钮反而处于未匹配状态，进而被误报为缺失（见 @fig:gui-fail 中的 FP 示例 1-2）。此外，某些复杂的控件交换可能导致元素间的重叠覆盖（FP 示例 3），这种物理上的遮挡会严重干扰视觉特征提取，导致相似度计算偏差，进而引发误匹配。
-#figure(
-  grid(
-    columns: 2,
-    gutter: 0.5em,
-    image("../../figures/guipilot_fp/2.pdf"), image("../../figures/guipilot_fp/5.pdf"),
-    align(center)[FP 示例 1], align(center)[FP 示例 2],
-    image("../../figures/guipilot_fp/9.pdf"), image("../../figures/guipilot_fn/3.pdf"),
-    [], [],
-    align(center)[FP 示例 3], align(center)[FN 示例 1],
-    [], [],
-  ),
-  caption: [#(tool) 的假阳性 (FP) 和假阴性 (FN) 示例。],
-) <fig:gui-fail>
+当界面发生剧烈的布局重构，且插入的新控件与原有相邻控件在视觉特征（如形状、类型）上极度相似时，#(tool) 的匹配算法可能会发生“错位匹配”。例如，插入的一个标准按钮可能被误认为是原有按钮的位移，导致真正的原有按钮反而处于未匹配状态，进而被误报为缺失（见 @img:gui-fail 中的 FP 示例 1-2）。此外，某些复杂的控件交换可能导致元素间的重叠覆盖（FP 示例 3），这种物理上的遮挡会严重干扰视觉特征提取，导致相似度计算偏差，进而引发误匹配。
 
+#imagex(
+  subimagex(
+    image("../../figures/guipilot_fp/2.pdf"),
+    caption: [FP 示例 1],
+  ),
+  subimagex(
+    image("../../figures/guipilot_fp/5.pdf"),
+    caption: [FP 示例 2],
+  ),
+  subimagex(
+    image("../../figures/guipilot_fp/9.pdf"),
+    caption: [FP 示例 3],
+  ),
+  subimagex(
+    image("../../figures/guipilot_fn/3.pdf"),
+    caption: [FN 示例 1],
+  ),
+  columns: (1fr, 1fr),
+  caption: [#(tool) 的假阳性 (FP) 和假阴性 (FN) 示例。],
+
+  label-name: "gui-fail",
+)
 *假阴性（False Negatives）分析：*
-假阴性的产生主要归因于两个方面：一是与假阳性类似的严重错位匹配，导致本应报出的差异被错误的“张冠李戴”掩盖；二是上游视觉检测模型的失效。如果在实现端截图中，新插入的控件未能被目标检测模型（YOLO）正确识别（如 @fig:gui-fail 中的 FN 示例 1），那么后续的匹配逻辑自然无从谈起，导致该不一致项被彻底遗漏。这表明，自动化检测流程的整体上限在一定程度上受限于基础视觉感知模块的性能。
+假阴性的产生主要归因于两个方面：一是与假阳性类似的严重错位匹配，导致本应报出的差异被错误的“张冠李戴”掩盖；二是上游视觉检测模型的失效。如果在实现端截图中，新插入的控件未能被目标检测模型（YOLO）正确识别（如 @img:gui-fail 中的 FN 示例 1），那么后续的匹配逻辑自然无从谈起，导致该不一致项被彻底遗漏。这表明，自动化检测流程的整体上限在一定程度上受限于基础视觉感知模块的性能。
 

@@ -1,3 +1,4 @@
+#import "@preview/modern-sjtu-thesis:0.5.1": *
 #import "../../define.typ": *
 == 案例研究 <exp:rq4>
 
@@ -11,31 +12,43 @@
 
 来自工业界的专家反馈特别指出，对于那些位置隐蔽或尺寸较小的缺失控件，传统的人工验收往往难以察觉，极易在多次迭代中被遗漏。本工具在发现此类细微但关键的差异方面展现了显著优势，有效填补了人工测试的盲区。目前，上述所有发现的违规项均已生成正式报告反馈给合作企业的研发团队，并得到了其确认与修复计划。
 
-@fig:case-study-screen-inconsistency 直观展示了几个典型的不一致实例。
+@img:case-study-screen-inconsistency 直观展示了几个典型的不一致实例。
 - 示例 1 显示了明显的语义与内容偏离：设计稿预期的“开启通知”引导在实现中被替换为业务逻辑完全不同的“续费订阅”入口；某些应加粗强调的日期字段未按样式实现；且原定的“市值”数据标签被简化为交互性质的“更多 >”按钮，改变了信息展示层级。
 - 示例 2 揭示了信息架构的缺失：关键的“指数类型”标签未渲染，原本设计用于社交传播的分享图标也无故丢失。此外，界面整体色调与设计规范存在多处细微但可感知的色差。
 // 更多详细的审计案例与分析报告已脱敏处理并发布于匿名网站 @case-study。
 
-#figure(
-  grid(
-    columns: 3,
-    gutter: 0.5em,
-    image("../../figures/case_study/screen/image-1.pdf"),
-    image("../../figures/case_study/screen/image-3.pdf"),
-    image("../../figures/case_study/screen/image-4.pdf"),
-
-    align(center)[(a) 示例 1：语义变化与控件缺失],
-    align(center)[(b) 示例 2：语义变化与控件缺失],
-    align(center)[(c) 示例 3：语义变化、  控件缺失与控件额外],
+#imagex(
+  subimagex(
+    image("../../figures/case_study/screen/image-1.pdf", width: 70%),
+    caption: [示例1：语义变化与控件缺失],
+    // caption-en: [Example 1: Semantic changes and missing widgets],
+    label-name: "example-1",
   ),
+  subimagex(
+    image("../../figures/case_study/screen/image-3.pdf", width: 70%),
+    caption: [示例2：语义变化与控件缺失],
+    // caption-en: [Example 2: Semantic changes and missing widgets],
+    label-name: "example-2",
+  ),
+  subimagex(
+    image("../../figures/case_study/screen/image-4.pdf", width: 70%),
+    caption: [示例3：语义变化、  控件缺失与控件额外],
+    // caption-en: [Example 3: Semantic changes, missing widgets, and extra widgets],
+    label-name: "example-3",
+  ),
+  columns: (1fr, 1fr),
   caption: [#(tool) 在该交易应用上报告的真实屏幕不一致实例。每幅图左侧为设计稿，右侧为实现屏幕。红框表示额外或缺失的控件，黄框表示语义不一致。],
-) <fig:case-study-screen-inconsistency>
-#figure(
+  label-name: "case-study-screen-inconsistency",
+)
+
+#imagex(
   image("../../figures/case_study/case_study_widget_match.png"),
   caption: [#(tool) 在真实手机界面和设计稿中完成的控件匹配示例。左侧为屏幕，右侧为设计稿。红框表示额外或缺失的控件，蓝色框表示成功匹配的控件，绿色线条表示准确的匹配关系。],
-) <fig:case-study-widget-match>
+  caption-en: [An example of widget matching between a real mobile interface and the design mock-up by #(tool). The left side shows the screen, and the right side shows the design mock-up. Red boxes indicate extra or missing widgets, blue boxes indicate successfully matched widgets, and green lines indicate accurate matching relationships.],
+  label-name: "case-study-widget-match",
+)
 
-@fig:case-study-widget-match 展示了 #(tool) 在处理长页面设计稿与受限视口实现之间的复杂匹配能力。在真实的移动应用设计实践中，对于包含滚动内容的功能页面，设计人员通常将完整的纵向内容流绘制在一张连续的长图设计稿中。然而，实际应用在运行时受限于物理屏幕视口（Viewport）的尺寸，仅能展示局部内容片段。这种“整体设计”与“局部实现”在空间布局上的显著差异，使得传统的基于绝对坐标或刚性模板匹配的方法极易失效。
+@img:case-study-widget-match 展示了 #(tool) 在处理长页面设计稿与受限视口实现之间的复杂匹配能力。在真实的移动应用设计实践中，对于包含滚动内容的功能页面，设计人员通常将完整的纵向内容流绘制在一张连续的长图设计稿中。然而，实际应用在运行时受限于物理屏幕视口（Viewport）的尺寸，仅能展示局部内容片段。这种“整体设计”与“局部实现”在空间布局上的显著差异，使得传统的基于绝对坐标或刚性模板匹配的方法极易失效。
 
 #(tool) 采用的基于序理论的匹配算法在此类场景下展现了卓越的鲁棒性。该算法首先通过递归投影切割将二维空间中的控件布局转化为具有拓扑逻辑的一维偏序序列，从而剥离了对绝对坐标的依赖。随后，通过将匹配问题建模为加权最长公共子序列（Weighted LCS）求解，算法能够在容忍非线性间隙与局部结构差异的前提下，从完整的设计稿序列中精准定位并对齐实现端可见的局部子序列。如图所示，即使在设计稿与实现界面的纵横比、分辨率乃至布局密度存在巨大差异的情况下，#(tool) 依然准确识别出了多余或缺失的控件，并建立了正确的控件级映射关系。
 

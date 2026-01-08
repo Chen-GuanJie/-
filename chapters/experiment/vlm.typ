@@ -1,3 +1,4 @@
+#import "@preview/modern-sjtu-thesis:0.5.1": *
 == VLM 操作完成性能 <exp:rq3-2>
 
 === 实验设置与评估目标
@@ -12,10 +13,14 @@
 === 实验结果与误差分析
 实验结果显示，在 100 个测试样本中，模型在首轮交互中即获得成功的案例达到 90 个；当允许模型在第一次失败后结合错误反馈进行一轮自我修正（Self-reflection）时，累计成功样本增至 99 个。这表明引入简单的迭代反馈循环能显著纠正偶发的幻觉或定位偏差，大幅提升系统的鲁棒性。关于这一个不可恢复的失败案例，经深入排查发现，根因在于上游的目标检测器未能检测到该特殊控件，导致输入 VLM 的提示图中该控件缺失索引标注，VLM 因而无法引用它执行操作。这再次印证了基础视觉感知模块对端到端系统性能的制约作用。
 
-进一步的控制变量分析探究了屏幕复杂度对模型性能的影响。将测试样本按屏幕内控件数量划分为五个区间（1-10, 10-20, ..., 40+），结果如 @fig:vlm-completion-grouped 所示。统计数据呈现出一种有趣的稳定性：尽管屏幕元素数量的增加客观上提高了视觉检索的难度，但 VLM 的操作成功率并未随界面密度的增加而出现显著下降。这一现象暗示了现代 VLM 具备较强的注意力聚焦能力，能够在复杂的视觉噪声中根据语义线索精准锁定目标区域。
+进一步的控制变量分析探究了屏幕复杂度对模型性能的影响。将测试样本按屏幕内控件数量划分为五个区间（1-10, 10-20, ..., 40+），结果如 @img:vlm-completion-grouped 所示。统计数据呈现出一种有趣的稳定性：尽管屏幕元素数量的增加客观上提高了视觉检索的难度，但 VLM 的操作成功率并未随界面密度的增加而出现显著下降。这一现象暗示了现代 VLM 具备较强的注意力聚焦能力，能够在复杂的视觉噪声中根据语义线索精准锁定目标区域。
 
-#figure(
+#imagex(
   image("../../figures/vlm_completion_by_UI.pdf", width: 80%),
   caption: [不同 UI 布局下的 VLM 操作完成性能（按源屏幕控件数量分组）。条形颜色的深浅代表了该类别在测试集中的分布频率，其中包含 10-30 个控件的中等复杂度界面占多数。],
-) <fig:vlm-completion-grouped>
+  caption-en: [
+    VLM action completion performance under different UI layouts (grouped by the number of widgets on the source screen). The color intensity of the bars represents the distribution frequency of that category in the test set, with medium-complexity interfaces containing 10-30 widgets being the most common.
+  ],
+  label-name: "vlm-completion-grouped",
+)
 
